@@ -1,0 +1,11 @@
+{
+  "name": "astro-seo",
+  "version": "0.0.1",
+  "description": "Makes it easy to add SEO relevant tags to your Astro app.",
+  "exports": "./src/index.js",
+  "keywords": [
+    "astro-component"
+  ],
+  "author": "Jonas Schumacher",
+  "license": "MIT"
+}
