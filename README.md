@@ -43,6 +43,23 @@ title | string | The title of the page.
 description | string | Text that gives a concise description of what your page is about.
 canoncial | string | Prevent duplicate content issues by specifying the "canonical" or "preferred" url of a web page.
 
+
+## What does this component do, exactly?
+
+There's certainly no magic to what Astro SEO does. Basically, it bundles the
+creation of regular SEO-relevant HTML tags inside one component that you can
+then use inside your page's `<head>` tag.
+
+The translation between props and tags is pretty direct and almost 1:1. After 
+building, there probably won't be anything you wouldn't have written yourself.
+__If you want to see how the sausage gets made, there's only one place you will 
+have to check__: `/src/SEO.astro` The idea is to surface the options that exist in 
+a central place and adhere to best practices where it's theoretically possible 
+not to.
+
+If you want, you can view Astro SEO as a checklist, so you don'f forget a tag or 
+maybe also as an educational tool, to see which options exist in the first place.
+
 ## Acknowledgements
 
 Astro SEO is _heavily_ inspired by [Next SEO](https://github.com/garmeeh/next-seo)
