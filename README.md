@@ -1,4 +1,6 @@
-# Astro SEO
+![Astro SEO Logo](https://user-images.githubusercontent.com/5182256/131216610-87062ed3-1e42-4ce2-a6a7-7dff5705a885.png)
+
+# 🚀 Astro SEO
 
 This [Astro](https://astro.build/) component makes it easy to add tags that are
 relevant for seach engine optimization (SEO) to your pages.
