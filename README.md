@@ -58,13 +58,14 @@ then use inside your page's `<head>` tag.
 
 The translation between props and tags is pretty direct and almost 1:1. After 
 building, there probably won't be anything you wouldn't have written yourself.
-__If you want to see how the sausage gets made, there's only one place you will 
-have to check__: `/src/SEO.astro` The idea is to surface the options that exist in 
-a central place and adhere to best practices where it's theoretically possible 
-not to.
+The idea is to surface the options that exist in a central place and adhere to 
+best practices where it's theoretically possible not to. __If you want to see 
+how the sausage gets made, there's only one place you will have to check__: 
+`/src/SEO.astro`
 
-If you want, you can view Astro SEO as a checklist, so you don'f forget a tag or 
-maybe also as an educational tool, to see which options exist in the first place.
+If you want, you can view Astro SEO as a checklist, so you don't forget a tag.
+Or maybe also as an educational tool, to see which options exist in the first 
+place.
 
 ## Acknowledgements
 
