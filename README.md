@@ -41,6 +41,7 @@ Propname | Type | Description
 ------------ | ------------- | -------------
 title | string | The title of the page.
 description | string | Text that gives a concise description of what your page is about.
+canoncial | string | Prevent duplicate content issues by specifying the "canonical" or "preferred" url of a web page.
 
 ## Acknowledgements
 
