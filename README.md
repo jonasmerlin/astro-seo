@@ -1,4 +1,4 @@
-![Astro SEO Logo](https://user-images.githubusercontent.com/5182256/131216610-87062ed3-1e42-4ce2-a6a7-7dff5705a885.png)
+![Astro SEO Logo](https://user-images.githubusercontent.com/5182256/131216703-1d1b8e26-6c2a-4330-9660-f6f2f2a436e0.png)
 
 # 🚀 Astro SEO
 
