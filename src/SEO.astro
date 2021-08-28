@@ -2,15 +2,24 @@
 export interface Props {
   title?: string;
 	description?: string;
+	canonical?: string;
 }
 
-const { title, description } = Astro.props
+const { title, description, canoncial } = Astro.props
 ---
 
 { title && <title>{title}</title> }
+
 { description && (
 	<meta
   	name="description"
   	content={description}
   />
+)}
+
+{ canoncial && (
+	<link 
+		rel="canonical"
+		href={canonical} 
+	/>
 )}
