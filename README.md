@@ -43,6 +43,12 @@ title | string | The title of the page.
 description | string | Text that gives a concise description of what your page is about.
 canoncial | string | Prevent duplicate content issues by specifying the "canonical" or "preferred" url of a web page.
 
+## Goals
+
+Our first goal for this project is to support the most-used tags that are
+relevant for SEO. That includes the most-used open graph tags.
+
+After that comes feature-parity with Next SEO. After _that_ ... we'll see.
 
 ## What does this component do, exactly?
 
