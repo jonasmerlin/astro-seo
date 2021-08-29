@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.6](https://github.com/jonasmerlin/astro-seo/compare/v0.3.5...v0.3.6) (2021-08-29)
+
+
+### Bug Fixes
+
+* don't use closing slashes for meta tags ([4e39973](https://github.com/jonasmerlin/astro-seo/commit/4e39973639a735dbc48345d4e9de22130c3d1f49))
+* use <Fragment> instead of <> ([f7fef3b](https://github.com/jonasmerlin/astro-seo/commit/f7fef3b57a86874dc97d20cb69a568bad2a7b4dd))
+
 ### [0.3.5](https://github.com/jonasmerlin/astro-seo/compare/v0.3.4...v0.3.5) (2021-08-29)
 
 
