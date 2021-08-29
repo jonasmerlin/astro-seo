@@ -46,58 +46,58 @@ if (openGraph) {
 }
 ---
 
-{ title && <title>{title}</title> }
+{ title ? <title>{title}</title> : null }
 
-{ canoncial && (
+{ canoncial ? (
 	<link 
 		rel="canonical"
 		href={canonical} 
 	/>
-)}
+) : null}
 
-{ description && (
+{ description ? (
 	<meta
   	name="description"
   	content={description}
   />
-)}
+) : null }
 
 <meta 
 	name="robots"
 	contents={`${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'}`}
 />
 
-{ openGraph && (
+{ openGraph ? (
 	<>
 		<meta property="og:title" content={openGraph.basic.title} />
 		<meta property="og:type" content={openGraph.basic.type} />
 		<meta property="og:image" content={openGraph.basic.image}/>
 		<meta property="og:url" content={openGraph.basic.url}/>
 	</>
-) }
+) : null }
 
-{ openGraph?.optional && (
+{ openGraph?.optional ? (
 	<>
-		{ openGraph.optional.audio && (
+		{ openGraph.optional.audio ? (
 			<meta property="og:audio" content={openGraph.optional.audio} />
-		)}
-		{ openGraph.optional.description && (
+		) : null }
+		{ openGraph.optional.description ? (
 			<meta property="og:description" content={openGraph.optional.description} />
-		)}
-		{ openGraph.optional.determiner && (
+		) : null }
+		{ openGraph.optional.determiner ? (
 			<meta property="og:determiner" content={openGraph.optional.determiner} />
-		)}
-		{ openGraph.optional.locale && (
+		) : null }
+		{ openGraph.optional.locale ? (
 			<meta property="og:locale" content={openGraph.optional.locale} />
-		)}
+		) : null }
 		{ openGraph.openGraph.localeAlternate?.map((locale) => (
 			<meta property="og:locale:alternate" content={locale} />
 		))}
-		{ openGraph.optional.siteName && (
+		{ openGraph.optional.siteName ? (
 			<meta property="og:site_name" content={openGraph.optional.siteName } />
-		)}
-		{ openGraph.optional.video && (
+		) : null}
+		{ openGraph.optional.video ? (
 			<meta property="og:video" content={openGraph.optional.video } />
-		)}
+		) : null }
 	</>
-)}
+) : null }
