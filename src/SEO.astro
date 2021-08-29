@@ -3,12 +3,21 @@ export interface Props {
   title?: string;
 	description?: string;
 	canonical?: string;
+	nofollow?: boolean;
+	noindex?: boolean;
 }
 
 const { title, description, canoncial } = Astro.props
 ---
 
 { title && <title>{title}</title> }
+
+{ canoncial && (
+	<link 
+		rel="canonical"
+		href={canonical} 
+	/>
+)}
 
 { description && (
 	<meta
@@ -17,9 +26,9 @@ const { title, description, canoncial } = Astro.props
   />
 )}
 
-{ canoncial && (
-	<link 
-		rel="canonical"
-		href={canonical} 
-	/>
-)}
+<meta 
+	name="robots"
+	contents={`
+		${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'}
+	`}
+/>
