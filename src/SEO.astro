@@ -7,9 +7,9 @@ export interface Props {
 	noindex?: boolean;
 	openGraph?: {
 		title: string;
-		url: string;
-		image: string;
 		type: string;
+		image: string;
+		url: string;
 	}
 }
 
@@ -47,7 +47,9 @@ const {
 />
 
 <!-- OpenGraph -->
-{ openGraph?.title && <meta property="og:title" content={openGraph.title}/>}
-{ openGraph?.url && <meta property="og:url" content={openGraph.url}/>}
-{ openGraph?.image && <meta property="og:url" content={openGraph.url}/>}
-{ openGraph?.type && <meta property="og:url" content={openGraph.url}/>}
+{ openGraph && (
+	<meta property="og:title" content={openGraph.title} />
+	<meta property="og:type" content={openGraph.type} />
+	<meta property="og:image" content={openGraph.image}/>
+	<meta property="og:url" content={openGraph.url}/>
+)}
