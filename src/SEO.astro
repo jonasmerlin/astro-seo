@@ -67,16 +67,16 @@ if (openGraph) {
 >
 
 { openGraph ? (
-	<>
+	<Fragment>
 		<meta property="og:title" content={openGraph.basic.title}>
 		<meta property="og:type" content={openGraph.basic.type}>
 		<meta property="og:image" content={openGraph.basic.image}>
 		<meta property="og:url" content={openGraph.basic.url}>
-	</>
+	</Fragment>
 ) : null }
 
 { openGraph?.optional ? (
-	<>
+	<Fragment>
 		{ openGraph.optional.audio ? (
 			<meta property="og:audio" content={openGraph.optional.audio}>
 		) : null }
@@ -98,5 +98,5 @@ if (openGraph) {
 		{ openGraph.optional.video ? (
 			<meta property="og:video" content={openGraph.optional.video }>
 		) : null }
-	</>
+	</Fragment>
 ) : null }
