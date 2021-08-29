@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.4](https://github.com/jonasmerlin/astro-seo/compare/v0.3.3...v0.3.4) (2021-08-29)
+
+
+### Bug Fixes
+
+* test if basic OG properties are null or undefined ([edbc136](https://github.com/jonasmerlin/astro-seo/commit/edbc1366883f2dac0b88355db27b730b7caef626))
+
 ### [0.3.3](https://github.com/jonasmerlin/astro-seo/compare/v0.3.2...v0.3.3) (2021-08-29)
 
 
