@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.7](https://github.com/jonasmerlin/astro-seo/compare/v0.3.6...v0.3.7) (2021-08-29)
+
+
+### Bug Fixes
+
+* make desrciption tag work correctly ([d19cedf](https://github.com/jonasmerlin/astro-seo/commit/d19cedf106f931b27756a2bd0f8f85f0e8450cd8))
+
 ### [0.3.6](https://github.com/jonasmerlin/astro-seo/compare/v0.3.5...v0.3.6) (2021-08-29)
 
 
