@@ -7,7 +7,13 @@ export interface Props {
 	noindex?: boolean;
 }
 
-const { title, description, canoncial } = Astro.props
+const { 
+	title,
+	description,
+	canoncial,
+	noindex,
+	nofollow
+} = Astro.props
 ---
 
 { title && <title>{title}</title> }
