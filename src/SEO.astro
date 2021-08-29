@@ -5,6 +5,12 @@ export interface Props {
 	canonical?: string;
 	nofollow?: boolean;
 	noindex?: boolean;
+	openGraph?: {
+		title: string;
+		url: string;
+		image: string;
+		type: string;
+	}
 }
 
 const { 
@@ -12,7 +18,8 @@ const {
 	description,
 	canoncial,
 	noindex,
-	nofollow
+	nofollow,
+	openGraph
 } = Astro.props
 ---
 
@@ -38,3 +45,9 @@ const {
 		${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'}
 	`}
 />
+
+<!-- OpenGraph -->
+{ openGraph?.title && <meta property="og:title" content={openGraph.title}/>}
+{ openGraph?.url && <meta property="og:url" content={openGraph.url}/>}
+{ openGraph?.image && <meta property="og:url" content={openGraph.url}/>}
+{ openGraph?.type && <meta property="og:url" content={openGraph.url}/>}
