@@ -90,7 +90,7 @@ if (openGraph) {
 		{ openGraph.optional.locale ? (
 			<meta property="og:locale" content={openGraph.optional.locale} />
 		) : null }
-		{ openGraph.openGraph.localeAlternate?.map((locale) => (
+		{ openGraph.optional.localeAlternate?.map((locale) => (
 			<meta property="og:locale:alternate" content={locale} />
 		))}
 		{ openGraph.optional.siteName ? (
