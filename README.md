@@ -57,7 +57,7 @@ openGraph.optional.video | string | A URL to a video file that complements this 
 
 ## Open Graph
 
-Open Graph properties are passed as one object to the prop `openGraph`. The structure of this object is modeled after the [Open Graph documentation](https://ogp.me/) itself. That means it uses nested objects to differentiate between basic and optional properties, as well as object specific ones. If you pass an openGraph config, you _must_ define all 4 of the basic properties (`title`, `type`, `image` and `url`). The optional properties are all ... well, optional.
+Open Graph properties are passed as one object to the prop `openGraph`. The structure of this object is modeled after the [Open Graph documentation](https://ogp.me/) itself. That means it uses nested objects to differentiate between basic and optional properties, as well as object specific ones. __If you pass an openGraph config, you _must_ define all 4 of the basic properties (`title`, `type`, `image` and `url`).__ The optional properties are all ... well, optional.
 
 ```typescript
 // TypeScript interface of openGraph prop
