@@ -11,6 +11,15 @@ export interface Props {
 			type: string;
 			image: string;
 			url: string;
+		},
+		optional?: {
+			audio?: string;
+			description?: string; 
+			determiner?: string; 
+			locale?: string; 
+			localeAlternate?: Array<string>;
+			siteName?: string;
+			video?: string;
 		}
 	}
 }
@@ -43,9 +52,7 @@ const {
 
 <meta 
 	name="robots"
-	contents={`
-		${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'}
-	`}
+	contents={`${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'}`}
 />
 
 <!-- OpenGraph -->
@@ -54,4 +61,30 @@ const {
 	<meta property="og:type" content={openGraph.basic.type} />
 	<meta property="og:image" content={openGraph.basic.image}/>
 	<meta property="og:url" content={openGraph.basic.url}/>
+) }
+
+{ openGraph?.optional && (
+	<>
+		{ openGraph.optional.audio && (
+			<meta property="og:audio" content={openGraph.optional.audio} />
+		)}
+		{ openGraph.optional.description && (
+			<meta property="og:description" content={openGraph.optional.description} />
+		)}
+		{ openGraph.optional.determiner && (
+			<meta property="og:determiner" content={openGraph.optional.determiner} />
+		)}
+		{ openGraph.optional.locale && (
+			<meta property="og:locale" content={openGraph.optional.locale} />
+		)}
+		{ openGraph.openGraph.localeAlternate?.map((locale) => (
+			<meta property="og:locale:alternate" content={locale} />
+		))}
+		{ openGraph.optional.siteName && (
+			<meta property="og:site_name" content={openGraph.optional.siteName } />
+		)}
+		{ openGraph.optional.video && (
+			<meta property="og:video" content={openGraph.optional.video } />
+		)}
+	</>
 )}
