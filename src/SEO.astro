@@ -32,6 +32,18 @@ const {
 	nofollow,
 	openGraph
 } = Astro.props
+
+if (openGraph) {
+	if (
+		!openGraph.basic
+		|| !openGraph.basic.title
+		|| !openGraph.basic.type
+		|| !openGraph.basic.image
+		|| !openGraph.basic.url
+	) {
+		throw new Error("If you pass the openGraph prop, you have to define the basic properties title, type, image, and url!")
+	}
+}
 ---
 
 { title && <title>{title}</title> }
@@ -55,7 +67,6 @@ const {
 	contents={`${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'}`}
 />
 
-<!-- OpenGraph -->
 { openGraph && (
 	<>
 		<meta property="og:title" content={openGraph.basic.title} />
