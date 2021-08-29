@@ -3,7 +3,7 @@
 # 🚀 Astro SEO
 
 This [Astro](https://astro.build/) component makes it easy to add tags that are
-relevant for seach engine optimization (SEO) to your pages.
+relevant for search engine optimization (SEO) to your pages.
 
 The ultimate goal is to make this the one-stop shop for most of your SEO needs when developing Astro sites.
 
