@@ -55,6 +55,30 @@ openGraph.optional.localeAlternate | Array<string> | An array of other locales t
 openGraph.optional.siteName | string | If your object is part of a larger web site, the name which should be displayed for the overall site. e.g., "IMDb".
 openGraph.optional.video | string | A URL to a video file that complements this object.
 
+## Open Graph
+
+Open Graph properties are passed as one object to the prop `openGraph`. The structure of this object is modeled after the [Open Graph documentation](https://ogp.me/) itself. That means it uses nested objects to differentiate between basic and optional properties, as well as object specific ones. If you pass an openGraph config, you _must_ define all 4 of the basic properties (`title`, `type`, `image` and `url`). The optional properties are all ... well, optional.
+
+```typescript
+// TypeScript interface of openGraph prop
+openGraph?: {
+	basic: {
+		title: string;
+		type: string;
+		image: string;
+		url: string;
+	},
+	optional?: {
+		audio?: string;
+		description?: string; 
+		determiner?: string; 
+		locale?: string; 
+		localeAlternate?: Array<string>;
+		siteName?: string;
+		video?: string;
+	}
+}
+```
 
 ## Goals
 
