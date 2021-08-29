@@ -5,8 +5,7 @@
 This [Astro](https://astro.build/) component makes it easy to add tags that are
 relevant for seach engine optimization (SEO) to your pages.
 
-Currently it's __very__ early in development. The ultimate goal is to make this
-the one-stop shop for most of your SEO needs when developing Astro sites.
+The ultimate goal is to make this the one-stop shop for most of your SEO needs when developing Astro sites.
 
 Pull requests and/or feature requests are very welcome!
 
@@ -42,6 +41,14 @@ Propname | Type | Description
 title | string | The title of the page.
 description | string | Text that gives a concise description of what your page is about.
 canoncial | string | Prevent duplicate content issues by specifying the "canonical" or "preferred" url of a web page.
+noindex | boolean | Set this to true if you don't want search engines to index your page. Since this is an SEO component, this gets set to `false` by default. This way, indexing is strictly opt-out.
+nofollow | boolean | Set this to true if you don't want search engines to follow links
+on your page. Since this is an SEO component, this gets set to `false` by default. This way, following links is strictly opt-out.
+openGraph.title | string | Set the title Open Graph should use. This can differ from your general page title. If you define this, you mus define the other 3 OG basic properties as well: `type`, `image` and `url`. ([Learn more.](https://ogp.me/#metadata))
+openGraph.type | string | Set the [type](https://ogp.me/#types) Open Graph should use. If you define this, you mus define the other 3 OG basic properties as well: `title`, `image` and `url`. ([Learn more.](https://ogp.me/#metadata))
+openGraph.image | string | URL of the image that should be used in social media previews. If you define this, you mus define the other 3 OG basic properties as well: `title`, `type` and `url`. ([Learn more.](https://ogp.me/#metadata))
+openGraph.url | string | The canonical URL of your object that will be used as its permanent ID in the graph. Mostl likely either the url of the page or its canonical url (see above). If you define this, you mus define the other 3 OG basic properties as well: `title`, `type` and `image`. ([Learn more.](https://ogp.me/#metadata))
+
 
 ## Goals
 
