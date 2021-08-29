@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.5](https://github.com/jonasmerlin/astro-seo/compare/v0.3.4...v0.3.5) (2021-08-29)
+
+
+### Bug Fixes
+
+* use of wrong object for localAlternate ([a588be4](https://github.com/jonasmerlin/astro-seo/commit/a588be4abf9cb5b6a0490be570ca63c82353a1cd))
+
 ### [0.3.4](https://github.com/jonasmerlin/astro-seo/compare/v0.3.3...v0.3.4) (2021-08-29)
 
 
