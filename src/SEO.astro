@@ -36,10 +36,10 @@ const {
 if (openGraph) {
 	if (
 		!openGraph.basic
-		|| !openGraph.basic.title
-		|| !openGraph.basic.type
-		|| !openGraph.basic.image
-		|| !openGraph.basic.url
+		|| openGraph.basic.title == null
+		|| openGraph.basic.type == null
+		|| openGraph.basic.image == null
+		|| openGraph.basic.url == null
 	) {
 		throw new Error("If you pass the openGraph prop, you have to define the basic properties title, type, image, and url!")
 	}
@@ -71,8 +71,8 @@ if (openGraph) {
 	<>
 		<meta property="og:title" content={openGraph.basic.title} />
 		<meta property="og:type" content={openGraph.basic.type} />
-		<meta property="og:image" content={openGraph.basic.image}/>
-		<meta property="og:url" content={openGraph.basic.url}/>
+		<meta property="og:image" content={openGraph.basic.image} />
+		<meta property="og:url" content={openGraph.basic.url} />
 	</>
 ) : null }
 
