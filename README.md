@@ -42,8 +42,7 @@ title | string | The title of the page.
 description | string | Text that gives a concise description of what your page is about.
 canoncial | string | Prevent duplicate content issues by specifying the "canonical" or "preferred" url of a web page.
 noindex | boolean | Set this to true if you don't want search engines to index your page. Since this is an SEO component, this gets set to `false` by default. This way, indexing is strictly opt-out.
-nofollow | boolean | Set this to true if you don't want search engines to follow links
-on your page. Since this is an SEO component, this gets set to `false` by default. This way, following links is strictly opt-out.
+nofollow | boolean | Set this to true if you don't want search engines to follow links on your page. Since this is an SEO component, this gets set to `false` by default. This way, following links is strictly opt-out.
 openGraph.title | string | Set the title Open Graph should use. This can differ from your general page title. If you define this, you mus define the other 3 OG basic properties as well: `type`, `image` and `url`. ([Learn more.](https://ogp.me/#metadata))
 openGraph.type | string | Set the [type](https://ogp.me/#types) Open Graph should use. If you define this, you mus define the other 3 OG basic properties as well: `title`, `image` and `url`. ([Learn more.](https://ogp.me/#metadata))
 openGraph.image | string | URL of the image that should be used in social media previews. If you define this, you mus define the other 3 OG basic properties as well: `title`, `type` and `url`. ([Learn more.](https://ogp.me/#metadata))
