@@ -10,10 +10,23 @@
     "type": "git",
     "url": "https://github.com/jonasmerlin/astro-seo"
   },
+  "files": [
+    "src/index.js",
+    "src/SEO.astro"
+  ],
   "exports": "./src/index.js",
   "keywords": [
     "astro-component"
   ],
   "author": "Jonas Schumacher",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "dev": "astro dev",
+    "preview": "astro preview"
+  },
+  "devDependencies": {
+    "astro": "^0.20.3",
+    "cypress": "^8.3.1"
+  }
 }

@@ -27,7 +27,7 @@ export interface Props {
 const { 
 	title,
 	description,
-	canoncial,
+	canonical,
 	noindex,
 	nofollow,
 	openGraph
@@ -47,7 +47,7 @@ if (openGraph) {
 ---
 { title ? <title>{title}</title> : null }
 
-{ canoncial ? (
+{ canonical ? (
 	<link 
 		rel="canonical"
 		href={canonical} 
@@ -63,7 +63,7 @@ if (openGraph) {
 
 <meta 
 	name="robots"
-	contents={`${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'}`}
+	content={`${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'}`}
 >
 
 { openGraph ? (
