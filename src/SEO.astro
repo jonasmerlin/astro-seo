@@ -1,4 +1,13 @@
 ---
+interface OpenGraphImageProps {
+	url?: string, 
+	secureUrl?: string; 
+	type?: string;
+	width?: number;
+	height?: number;
+	alt?: string; 
+}
+
 export interface Props {
   title?: string;
 	description?: string;
@@ -20,6 +29,14 @@ export interface Props {
 			localeAlternate?: Array<string>;
 			siteName?: string;
 			video?: string;
+		},
+		image?: {
+			url?: string, 
+			secureUrl?: string; 
+			type?: string;
+			width?: number;
+			height?: number;
+			alt?: string; 
 		}
 	}
 }
@@ -42,6 +59,26 @@ if (openGraph) {
 		|| openGraph.basic.url == null
 	) {
 		throw new Error("If you pass the openGraph prop, you have to define the basic properties title, type, image, and url!")
+	}
+}
+
+function generateOpenGraphImageTags(props: Props) {
+	if (props.openGraph?.image) {
+		const {
+			secureUrl, 
+			type,
+			width,
+			height,
+			alt
+		} = props.openGraph.image;
+
+		return (
+			<Fragment>
+				{secureUrl ? (
+					<meta property="og:image:secure_url" content={secureUrl} />	
+				) : null }
+			</Fragment>
+		)
 	}
 }
 ---
@@ -100,3 +137,5 @@ if (openGraph) {
 		) : null }
 	</Fragment>
 ) : null }
+
+{generateOpenGraphImageTags(props)}

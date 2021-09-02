@@ -117,3 +117,16 @@ describe("index & follow combinations", () => {
 	})
 
 })
+
+describe("Open Graph image tags", () => {
+
+	it("sets secure_url property", () => {
+		cy.visit("localhost:3000/ogImageTags")
+		cy.get('head meta[property="og:image:secure_url"]').should(
+			'have.attr',
+			'content',
+			'open_graph_image_secure_url'
+		)
+	})
+
+})
