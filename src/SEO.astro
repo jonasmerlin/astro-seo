@@ -65,6 +65,7 @@ if (openGraph) {
 function generateOpenGraphImageTags(props: Props) {
 	if (props.openGraph?.image) {
 		const {
+			url,
 			secureUrl, 
 			type,
 			width,
@@ -74,6 +75,7 @@ function generateOpenGraphImageTags(props: Props) {
 
 		return (
 			<Fragment>
+				<meta property="og:image:url" content={openGraph.basic.image} />	
 				{secureUrl ? (
 					<meta property="og:image:secure_url" content={secureUrl} />	
 				) : null }
