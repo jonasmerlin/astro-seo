@@ -54,6 +54,12 @@ openGraph.optional.locale | string | The locale these tags are marked up in. Of 
 openGraph.optional.localeAlternate | Array<string> | An array of other locales this page is available in.
 openGraph.optional.siteName | string | If your object is part of a larger web site, the name which should be displayed for the overall site. e.g., "IMDb".
 openGraph.optional.video | string | A URL to a video file that complements this object.
+openGraph.image.url | string | For now, setting this is ignored. This is done because `og:image:url` is supposed to be identical to `og:image`. If you have a use case where it makes sense for these to be different, please feel free to contact me, and tell me about it and I will consider adding it. Until then, in the interest of enforcing best practices, the value of this property will be ignored and `og:image:url` set to the value of `openGraph.basic.image`.
+openGraph.image.secureUrl | string | Sets `og:image:secure_url`: An alternate url to use if the webpage requires HTTPS. 
+openGraph.image.type | string | Sets `og:image:type`. A MIME type for the image. e.g. "image/jpeg"
+openGraph.image.width | number | Sets `og:image:width`. The number of pixels wide.
+openGraph.image.height | number | Sets `og:image:height`. The number of pixels high.
+openGraph.image.alt | string | Sets `og:image:alt`. A description of what is in the image (not a caption). If the page specifies `openGraph.basic.image` it should specify `openGraph.image.alt`.
 
 ## Open Graph
 
