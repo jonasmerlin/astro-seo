@@ -117,3 +117,52 @@ describe("index & follow combinations", () => {
 	})
 
 })
+
+describe("Open Graph image tags", () => {
+
+	it("sets secure_url property", () => {
+		cy.visit("localhost:3000/ogImageTags")
+		cy.get('head meta[property="og:image:secure_url"]').should(
+			'have.attr',
+			'content',
+			'open_graph_image_secure_url'
+		)
+	})
+
+	it("sets mime type property", () => {
+		cy.visit("localhost:3000/ogImageTags")
+		cy.get('head meta[property="og:image:type"]').should(
+			'have.attr',
+			'content',
+			'open_graph_image_mime_type'
+		)
+	})
+	
+	it("sets mime width property", () => {
+		cy.visit("localhost:3000/ogImageTags")
+		cy.get('head meta[property="og:image:width"]').should(
+			'have.attr',
+			'content',
+			'500'
+		)
+	})
+
+	it("sets mime height property (when it's 0)", () => {
+		cy.visit("localhost:3000/ogImageTags")
+		cy.get('head meta[property="og:image:height"]').should(
+			'have.attr',
+			'content',
+			'0'
+		)
+	})
+
+	it("sets alt property", () => {
+		cy.visit("localhost:3000/ogImageTags")
+		cy.get('head meta[property="og:image:alt"]').should(
+			'have.attr',
+			'content',
+			'open_graph_image_alt'
+		)
+	})
+
+})

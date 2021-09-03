@@ -48,12 +48,18 @@ openGraph.basic.type | string | Set the [type](https://ogp.me/#types) Open Graph
 openGraph.basic.image | string | URL of the image that should be used in social media previews. If you define this, you must define the other 3 OG basic properties as well: `title`, `type` and `url`. ([Learn more.](https://ogp.me/#metadata))
 openGraph.basic.url | string | The canonical URL of your object that will be used as its permanent ID in the graph. Mostl likely either the url of the page or its canonical url (see above). If you define this, you must define the other 3 OG basic properties as well: `title`, `type` and `image`. ([Learn more.](https://ogp.me/#metadata))
 openGraph.optional.audio | string | A URL to an audio file to accompany this object.
-openGraph.optional.description | string | A one to two sentence description of your object.
+openGraph.optional.description | string | A one to two sentence description of your object. __In most situations, this should be _different_ from the value of the `description` prop. See [this tweet](https://twitter.com/jon_neal/status/1428721238071988237) to gain an understanding of the difference between the two.
 openGraph.optional.determiner | string | The word that appears before this object's title in a sentence. An enum of (a, an, the, "", auto). If auto is chosen, the consumer of your data should chose between "a" or "an". Default is "" (blank).
 openGraph.optional.locale | string | The locale these tags are marked up in. Of the format language_TERRITORY. Default is en_US.
 openGraph.optional.localeAlternate | Array<string> | An array of other locales this page is available in.
 openGraph.optional.siteName | string | If your object is part of a larger web site, the name which should be displayed for the overall site. e.g., "IMDb".
 openGraph.optional.video | string | A URL to a video file that complements this object.
+openGraph.image.url | string | For now, setting this is ignored. This is done because `og:image:url` is supposed to be identical to `og:image`. If you have a use case where it makes sense for these to be different, please feel free to contact me, and tell me about it and I will consider adding it. Until then, in the interest of enforcing best practices, the value of this property will be ignored and `og:image:url` set to the value of `openGraph.basic.image`.
+openGraph.image.secureUrl | string | Sets `og:image:secure_url`: An alternate url to use if the webpage requires HTTPS. 
+openGraph.image.type | string | Sets `og:image:type`. A MIME type for the image. e.g. "image/jpeg"
+openGraph.image.width | number | Sets `og:image:width`. The number of pixels wide.
+openGraph.image.height | number | Sets `og:image:height`. The number of pixels high.
+openGraph.image.alt | string | Sets `og:image:alt`. A description of what is in the image (not a caption). If the page specifies `openGraph.basic.image` it should specify `openGraph.image.alt`.
 
 ## Open Graph
 
