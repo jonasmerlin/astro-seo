@@ -62,6 +62,12 @@ if (openGraph) {
 	}
 }
 
+if (description && openGraph.optional.description) {
+	if (description == openGraph.optional.description) {
+		console.warn("WARNING(Astro SEO): You passed the same value to `description` and `openGraph.optional.description`. This is most likely not what you want. See docs for more.")
+	}
+}
+
 function generateOpenGraphImageTags(props: Props) {
 	if (props.openGraph?.image) {
 		const {
