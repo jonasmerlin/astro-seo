@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.9](https://github.com/jonasmerlin/astro-seo/compare/v0.3.8...v0.3.9) (2021-09-03)
+
+
+### Features
+
+* add support for Open Graph image tags ([8e61ff6](https://github.com/jonasmerlin/astro-seo/commit/8e61ff67713366951eb1cabf7908a837d7f83278))
+* implemen og:image:secure_url tag ([205eb69](https://github.com/jonasmerlin/astro-seo/commit/205eb6971cc23784c84f5571a2f7bc4dd90f82a9))
+* log warning when `description` and `openGraph.optional.description` are set to same value ([91e2fba](https://github.com/jonasmerlin/astro-seo/commit/91e2fba66ec9b8c27bc303b123780358c1c3ff58))
+* set `og:image:url` content to openGraph.basic.image ([4ff103c](https://github.com/jonasmerlin/astro-seo/commit/4ff103c86ea41f4a993cececd596048e96530f89))
+
+
+### Bug Fixes
+
+* reference typo to canonical variable ([3493392](https://github.com/jonasmerlin/astro-seo/commit/349339267120600372c80381463707516212726b))
+
 ### [0.3.8](https://github.com/jonasmerlin/astro-seo/compare/v0.3.7...v0.3.8) (2021-09-01)
 
 
