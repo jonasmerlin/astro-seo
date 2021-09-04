@@ -166,3 +166,33 @@ describe("Open Graph image tags", () => {
 	})
 
 })
+
+describe("Twitter tags", () => {
+
+	it("sets twitter:card tag", () => {
+		cy.visit("localhost:3000/twitterTags")
+		cy.get('head meta[name="twitter:card"]').should(
+			'have.attr',
+			'content',
+			'summary_large_image'
+		)
+	})
+
+	it("sets twitter:site tag", () => {
+		cy.visit("localhost:3000/twitterTags")
+		cy.get('head meta[name="twitter:site"]').should(
+			'have.attr',
+			'content',
+			'@astrodotbuild'
+		)
+	})
+
+	it("sets twitter:creator tag", () => {
+		cy.visit("localhost:3000/twitterTags")
+		cy.get('head meta[name="twitter:creator"]').should(
+			'have.attr',
+			'content',
+			'@astrodotbuild'
+		)
+	})
+})

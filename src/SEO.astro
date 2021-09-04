@@ -38,6 +38,11 @@ export interface Props {
 			height?: number;
 			alt?: string; 
 		}
+	},
+	twitter?: {
+		card?: string;
+		site?: string;
+		creator?: string;
 	}
 }
 
@@ -105,6 +110,30 @@ function generateOpenGraphImageTags(props: Props) {
 		)
 	}
 }
+
+function generateTwitterTags(props: Props) {
+	if (props.twitter) {
+		const {
+			card,
+			site,
+			creator
+		} = props.twitter;
+
+		return (
+			<Fragment>
+				{ card ? (
+					<meta name="twitter:card" content={card}/>
+				) : null}
+				{ site ? (
+					<meta name="twitter:site" content={site}/>
+				) : null}
+				{ creator ? (
+					<meta name="twitter:creator" content={creator}/>
+				) : null}
+			</Fragment>
+		)
+	}
+}
 ---
 { title ? <title>{title}</title> : null }
 
@@ -163,3 +192,4 @@ function generateOpenGraphImageTags(props: Props) {
 ) : null }
 
 {generateOpenGraphImageTags(props)}
+{generateTwitterTags(props)}
