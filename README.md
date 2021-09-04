@@ -59,7 +59,7 @@ openGraph.image.secureUrl | string | Sets `og:image:secure_url`: An alternate ur
 openGraph.image.type | string | Sets `og:image:type`. A MIME type for the image. e.g. "image/jpeg"
 openGraph.image.width | number | Sets `og:image:width`. The number of pixels wide.
 openGraph.image.height | number | Sets `og:image:height`. The number of pixels high.
-openGraph.image.alt | string | Sets `og:image:alt`. A description of what is in the image (not a caption). If the page specifies `openGraph.basic.image` it should specify `openGraph.image.alt`.
+openGraph.image.alt | string | Sets `og:image:alt`. A description of what is in the image (not a caption). __If the page specifies `openGraph.basic.image` it should specify `openGraph.image.alt`__.
 twitter.card | string | Sets `twitter:card`. The card type, which will be one of “summary”, “summary_large_image”, “app”, or “player”.
 twitter.site | string | Sets `twitter:site`. (Twitter) @username for the website used in the card footer.
 twitter.creator | string | Sets `twitter:creator`. (Twitter) @username for the content creator / author.
