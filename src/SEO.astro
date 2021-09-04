@@ -62,10 +62,14 @@ if (openGraph) {
 	}
 }
 
-if (description && openGraph.optional.description) {
+if (description && openGraph?.optional?.description) {
 	if (description == openGraph.optional.description) {
-		console.warn("WARNING(Astro SEO): You passed the same value to `description` and `openGraph.optional.description`. This is most likely not what you want. See docs for more.")
+		console.warn("WARNING(astro-seo): You passed the same value to `description` and `openGraph.optional.description`. This is most likely not what you want. See docs for more.")
 	}
+}
+
+if (openGraph?.basic?.image && !openGraph?.image?.alt) {
+	console.warn("WARNING(astro-seo): You defined `openGraph.basic.image`, but didn't define `openGraph.image.alt`. This is stongly discouraged.'")
 }
 
 function generateOpenGraphImageTags(props: Props) {
