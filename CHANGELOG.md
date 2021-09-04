@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.10](https://github.com/jonasmerlin/astro-seo/compare/v0.3.9...v0.3.10) (2021-09-04)
+
+
+### Features
+
+* add support for basic twitter tags ([ab90b55](https://github.com/jonasmerlin/astro-seo/commit/ab90b5593757ea1694e20f2bdf60eff0621b2024))
+* log warning when `openGraph.basic.image` ist set, but `openGraph.image.alt` is not ([1fc3df8](https://github.com/jonasmerlin/astro-seo/commit/1fc3df8f885259a5e4f3a266a13c61bdd0803957))
+
 ### [0.3.9](https://github.com/jonasmerlin/astro-seo/compare/v0.3.8...v0.3.9) (2021-09-03)
 
 
