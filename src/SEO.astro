@@ -37,6 +37,14 @@ export interface Props {
 			width?: number;
 			height?: number;
 			alt?: string; 
+		},
+		article?: {
+			publishedTime?: string;
+			modifiedTime?: string;
+			expirationTime?: string;
+			authors?: string[];
+			section?: string;
+			tags?: string[];
 		}
 	},
 	twitter?: {
@@ -106,6 +114,46 @@ function generateOpenGraphImageTags(props: Props) {
 				{!(alt === null) ? (
 					<meta property="og:image:alt" content={alt} />	
 				) : null }
+			</Fragment>
+		)
+	}
+}
+
+function generateOpenGraphArticleTags(props: Props) {
+	if (props.openGraph?.article) {
+		const {
+			publishedTime,
+			modifiedTime,
+			expirationTime,
+			authors,
+			section,
+			tags
+		} = props.openGraph.article;
+
+		return (
+			<Fragment>
+				{ publishedTime ? (
+					<meta property="article:published_time" content={publishedTime} />
+				) : null}
+				{ modifiedTime ? (
+					<meta property="article:modified_time" content={modifiedTime} />
+				) : null}
+				{ expirationTime ? (
+					<meta property="article:expiration_time" content={expirationTime} />
+				) : null}
+				{ authors ? (
+					authors.map((author) => (
+						<meta property="article:author" content={author} />
+					))
+				) : null}
+				{ section ? (
+					<meta property="article:section" content={section} />
+				) : null}
+				{ tags ? (
+					tags.map((tag) => (
+						<meta property="article:tag" content={tag} />
+					))
+				) : null}
 			</Fragment>
 		)
 	}
@@ -192,4 +240,6 @@ function generateTwitterTags(props: Props) {
 ) : null }
 
 {generateOpenGraphImageTags(props)}
+{generateOpenGraphArticleTags(props)}
 {generateTwitterTags(props)}
+
