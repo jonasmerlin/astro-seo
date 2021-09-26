@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.11](https://github.com/jonasmerlin/astro-seo/compare/v0.3.10...v0.3.11) (2021-09-26)
+
+
+### Features
+
+* add support for OG article tags ([9615bfa](https://github.com/jonasmerlin/astro-seo/commit/9615bfab6402212248260153fbbadfd551b3d756))
+
 ### [0.3.10](https://github.com/jonasmerlin/astro-seo/compare/v0.3.9...v0.3.10) (2021-09-04)
 
 
