@@ -60,6 +60,12 @@ openGraph.image.type | string | Sets `og:image:type`. A MIME type for the image.
 openGraph.image.width | number | Sets `og:image:width`. The number of pixels wide.
 openGraph.image.height | number | Sets `og:image:height`. The number of pixels high.
 openGraph.image.alt | string | Sets `og:image:alt`. A description of what is in the image (not a caption). __If the page specifies `openGraph.basic.image` it should specify `openGraph.image.alt`__.
+openGraph.article.publishedTime | string | Sets `article:published_time`. The date the article was published. Must be a ISO 8601 DateTime string.
+openGraph.article.modifiedTime | string | Sets `article:modified_time`. The date the article was last modified. Must be a ISO 8601 DateTime string.
+openGraph.article.expirationTime | string | Sets `article:expiration_time`. The date the article will no longer be relevant. Must be a ISO 8601 DateTime string.
+openGraph.article.author | string[] | Sets `article:author`. The author(s) of the article, if it's only one, pass an array with one entry. If there are multiple, multiple tags with descending relevance will be created.
+openGraph.article.section | string | Sets `article:section`. A high-level section name. E.g. Technology
+openGraph.article.tags | string[] | Sets `article:tag`. Tag words associated with this article. If it's only one, pass an array with one entry. If there are multiple, multiple tags with descending relevance will be created.
 twitter.card | string | Sets `twitter:card`. The card type, which will be one of “summary”, “summary_large_image”, “app”, or “player”.
 twitter.site | string | Sets `twitter:site`. (Twitter) @username for the website used in the card footer.
 twitter.creator | string | Sets `twitter:creator`. (Twitter) @username for the content creator / author.
