@@ -167,8 +167,78 @@ describe("Open Graph image tags", () => {
 
 })
 
-describe("Twitter tags", () => {
+describe("Open Graph article tags", () => {
 
+	it("sets published_time property", () => {
+		cy.visit("localhost:3000/ogArticleTags")
+		cy.get('head meta[property="article:published_time"]').should(
+			'have.attr',
+			'content',
+			'2021-09-22'
+		)
+	})
+
+	it("sets modified_time property", () => {
+		cy.visit("localhost:3000/ogArticleTags")
+		cy.get('head meta[property="article:modified_time"]').should(
+			'have.attr',
+			'content',
+			'2021-09-22'
+		)
+	})
+
+	it("sets expiration_time property", () => {
+		cy.visit("localhost:3000/ogArticleTags")
+		cy.get('head meta[property="article:expiration_time"]').should(
+			'have.attr',
+			'content',
+			'2021-09-22'
+		)
+	})
+
+	it("sets authors properties", () => {
+		cy.visit("localhost:3000/ogArticleTags")
+		cy.get('head meta[property="article:author"]')
+		.should('have.length', 2)
+		.then(tags => {
+			expect(tags[0].content).to.equal("Smiley")
+			expect(tags[1].content).to.equal("Control")
+		});
+	})
+
+	it("sets section property", () => {
+		cy.visit("localhost:3000/ogArticleTags")
+		cy.get('head meta[property="article:section"]').should(
+			'have.attr',
+			'content',
+			'Literature'
+		)
+	})
+
+	it("sets tags properties", () => {
+		cy.visit("localhost:3000/ogArticleTags")
+		cy.get('head meta[property="article:tag"]')
+		.should('have.length', 2)
+		.then(tags => {
+			expect(tags[0].content).to.equal("Spy fiction")
+			expect(tags[1].content).to.equal("Thriller")
+		});
+	})
+
+	it("doesn't set empty author array", () => {
+		cy.visit("localhost:3000/ogArticleTagsEmtpyArray")
+		cy.get('head meta[property="article:author"]')
+		.should('have.length', 0)
+	})
+
+	it("doesn't set empty tag array", () => {
+		cy.visit("localhost:3000/ogArticleTagsEmtpyArray")
+		cy.get('head meta[property="article:tag"]')
+		.should('have.length', 0)
+	})
+})
+
+describe("Twitter tags", () => {
 	it("sets twitter:card tag", () => {
 		cy.visit("localhost:3000/twitterTags")
 		cy.get('head meta[name="twitter:card"]').should(
