@@ -1,13 +1,4 @@
 ---
-interface OpenGraphImageProps {
-	url?: string, 
-	secureUrl?: string; 
-	type?: string;
-	width?: number;
-	height?: number;
-	alt?: string; 
-}
-
 export interface Props {
   title?: string;
 	description?: string;
@@ -63,58 +54,114 @@ const {
 	openGraph
 } = Astro.props
 
-if (openGraph) {
-	if (
-		!openGraph.basic
-		|| openGraph.basic.title == null
-		|| openGraph.basic.type == null
-		|| openGraph.basic.image == null
-		|| openGraph.basic.url == null
-	) {
-		throw new Error("If you pass the openGraph prop, you have to define the basic properties title, type, image, and url!")
+function validateProps(props) {
+	const {
+		openGraph,
+		description,
+	} = props;
+
+	if (openGraph) {
+		if (
+			!openGraph.basic
+			|| openGraph.basic.title == null
+			|| openGraph.basic.type == null
+			|| openGraph.basic.image == null
+			|| openGraph.basic.url == null
+		) {
+			throw new Error("If you pass the openGraph prop, you have to define the basic properties title, type, image, and url!")
+		}
+	}
+
+	if (description && openGraph?.optional?.description) {
+		if (description == openGraph.optional.description) {
+			console.warn("WARNING(astro-seo): You passed the same value to `description` and `openGraph.optional.description`. This is most likely not what you want. See docs for more.")
+		}
+	}
+
+	if (openGraph?.basic?.image && !openGraph?.image?.alt) {
+		console.warn("WARNING(astro-seo): You defined `openGraph.basic.image`, but didn't define `openGraph.image.alt`. This is stongly discouraged.'")
 	}
 }
 
-if (description && openGraph?.optional?.description) {
-	if (description == openGraph.optional.description) {
-		console.warn("WARNING(astro-seo): You passed the same value to `description` and `openGraph.optional.description`. This is most likely not what you want. See docs for more.")
-	}
-}
+validateProps(Astro.props);
 
-if (openGraph?.basic?.image && !openGraph?.image?.alt) {
-	console.warn("WARNING(astro-seo): You defined `openGraph.basic.image`, but didn't define `openGraph.image.alt`. This is stongly discouraged.'")
-}
-
-function generateOpenGraphImageTags(props: Props) {
-	if (props.openGraph?.image) {
-		const {
-			url,
-			secureUrl, 
-			type,
-			width,
-			height,
-			alt
-		} = props.openGraph.image;
-
+function generateOpenGraphBasicTags(props: Props) {
+	if (props.openGraph) {
 		return (
 			<Fragment>
-				<meta property="og:image:url" content={openGraph.basic.image} />	
-				{secureUrl ? (
-					<meta property="og:image:secure_url" content={secureUrl} />	
-				) : null }
-				{type ? (
-					<meta property="og:image:type" content={type} />	
-				) : null }
-				{width ? (
-					<meta property="og:image:width" content={width} />	
-				) : null }
-				{!(height === null) ? (
-					<meta property="og:image:height" content={height} />	
-				) : null }
-				{!(alt === null) ? (
-					<meta property="og:image:alt" content={alt} />	
-				) : null }
+				<meta property="og:title" content={openGraph.basic.title} />
+				<meta property="og:type" content={openGraph.basic.type} />
+				<meta property="og:image" content={openGraph.basic.image} />
+				<meta property="og:url" content={openGraph.basic.url} />
 			</Fragment>
+		)
+	} else {
+		return null
+	}
+}
+
+function generateOpenGraphOptionalTags(props: Props) {
+	if (openGraph && openGraph.optional) {
+		return (
+				<Fragment>
+					{ openGraph.optional.audio ? (
+						<meta property="og:audio" content={openGraph.optional.audio} />
+					) : null }
+					{ openGraph.optional.description ? (
+						<meta property="og:description" content={openGraph.optional.description} />
+					) : null }
+					{ openGraph.optional.determiner ? (
+						<meta property="og:determiner" content={openGraph.optional.determiner} />
+					) : null }
+					{ openGraph.optional.locale ? (
+						<meta property="og:locale" content={openGraph.optional.locale} />
+					) : null }
+					{ openGraph.optional.localeAlternate?.map((locale) => (
+						<meta property="og:locale:alternate" content={locale} />
+					))}
+					{ openGraph.optional.siteName ? (
+						<meta property="og:site_name" content={openGraph.optional.siteName } />
+					) : null}
+					{ openGraph.optional.video ? (
+						<meta property="og:video" content={openGraph.optional.video } />
+					) : null }
+				</Fragment>
+			)
+		} else {
+			return null;
+		}
+	}
+
+	function generateOpenGraphImageTags(props: Props) {
+		if (props.openGraph?.image) {
+			const {
+				url,
+				secureUrl, 
+				type,
+				width,
+				height,
+				alt
+			} = props.openGraph.image;
+
+			return (
+				<Fragment>
+					<meta property="og:image:url" content={openGraph.basic.image} />	
+					{secureUrl ? (
+						<meta property="og:image:secure_url" content={secureUrl} />	
+					) : null }
+					{type ? (
+						<meta property="og:image:type" content={type} />	
+					) : null }
+					{width ? (
+						<meta property="og:image:width" content={width} />	
+					) : null }
+					{!(height === null) ? (
+						<meta property="og:image:height" content={height} />	
+					) : null }
+					{!(alt === null) ? (
+						<meta property="og:image:alt" content={alt} />	
+					) : null }
+				</Fragment>
 		)
 	}
 }
@@ -204,42 +251,8 @@ function generateTwitterTags(props: Props) {
 	content={`${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'}`}
 >
 
-{ openGraph ? (
-	<Fragment>
-		<meta property="og:title" content={openGraph.basic.title}>
-		<meta property="og:type" content={openGraph.basic.type}>
-		<meta property="og:image" content={openGraph.basic.image}>
-		<meta property="og:url" content={openGraph.basic.url}>
-	</Fragment>
-) : null }
-
-{ openGraph?.optional ? (
-	<Fragment>
-		{ openGraph.optional.audio ? (
-			<meta property="og:audio" content={openGraph.optional.audio}>
-		) : null }
-		{ openGraph.optional.description ? (
-			<meta property="og:description" content={openGraph.optional.description}>
-		) : null }
-		{ openGraph.optional.determiner ? (
-			<meta property="og:determiner" content={openGraph.optional.determiner}>
-		) : null }
-		{ openGraph.optional.locale ? (
-			<meta property="og:locale" content={openGraph.optional.locale}>
-		) : null }
-		{ openGraph.optional.localeAlternate?.map((locale) => (
-			<meta property="og:locale:alternate" content={locale}>
-		))}
-		{ openGraph.optional.siteName ? (
-			<meta property="og:site_name" content={openGraph.optional.siteName }>
-		) : null}
-		{ openGraph.optional.video ? (
-			<meta property="og:video" content={openGraph.optional.video }>
-		) : null }
-	</Fragment>
-) : null }
-
-{generateOpenGraphImageTags(props)}
-{generateOpenGraphArticleTags(props)}
-{generateTwitterTags(props)}
-
+{ generateOpenGraphBasicTags(props) }
+{ generateOpenGraphOptionalTags(props) }
+{ generateOpenGraphImageTags(props) }
+{ generateOpenGraphArticleTags(props) }
+{ generateTwitterTags(props) }
