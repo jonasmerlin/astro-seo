@@ -40,7 +40,7 @@ Propname | Type | Description
 ------------ | ------------- | -------------
 title | string | The title of the page.
 description | string | Text that gives a concise description of what your page is about.
-canoncial | string | Prevent duplicate content issues by specifying the "canonical" or "preferred" url of a web page.
+canonical | string | Prevent duplicate content issues by specifying the "canonical" or "preferred" url of a web page.
 noindex | boolean | Set this to true if you don't want search engines to index your page. Since this is an SEO component, this gets set to `false` by default. This way, indexing is strictly opt-out.
 nofollow | boolean | Set this to true if you don't want search engines to follow links on your page. Since this is an SEO component, this gets set to `false` by default. This way, following links is strictly opt-out.
 openGraph.basic.title | string | Set the title Open Graph should use. This can differ from your general page title. If you define this, you must define the other 3 OG basic properties as well: `type`, `image` and `url`. ([Learn more.](https://ogp.me/#metadata))
