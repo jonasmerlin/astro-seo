@@ -72,9 +72,9 @@ function validateProps(props) {
 		}
 	}
 
-	if (description && openGraph?.optional?.description) {
-		if (description == openGraph.optional.description) {
-			console.warn("WARNING(astro-seo): You passed the same value to `description` and `openGraph.optional.description`. This is most likely not what you want. See docs for more.")
+	if (title && openGraph?.basic.title) {
+		if (title == openGraph.basic.title) {
+			console.warn("WARNING(astro-seo): You passed the same value to `title` and `openGraph.optional.title`. This is most likely not what you want. See docs for more.")
 		}
 	}
 
