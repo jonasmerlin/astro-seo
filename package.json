@@ -1,6 +1,6 @@
 {
   "name": "astro-seo",
-  "version": "0.3.11",
+  "version": "0.3.12",
   "description": "Makes it easy to add SEO relevant tags to your Astro app.",
   "homepage": "https://github.com/jonasmerlin/astro-seo#readme",
   "bugs": {
