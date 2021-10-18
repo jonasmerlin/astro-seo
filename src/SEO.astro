@@ -44,7 +44,7 @@ export interface Props {
 		creator?: string;
 	}
 }
-
+const { props } = Astro;
 const { 
 	title,
 	description,
@@ -52,7 +52,7 @@ const {
 	noindex,
 	nofollow,
 	openGraph
-} = Astro.props
+} = props;
 
 function validateProps(props) {
 	const {
@@ -83,7 +83,7 @@ function validateProps(props) {
 	}
 }
 
-validateProps(Astro.props);
+validateProps(props);
 
 function generateOpenGraphBasicTags(props: Props) {
 	if (props.openGraph) {
