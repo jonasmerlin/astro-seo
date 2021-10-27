@@ -1,4 +1,12 @@
 ---
+export interface Link extends HTMLMetaElement {
+  prefetch: boolean;
+}
+
+export interface Meta extends HTMLMetaElement {
+  property: string;
+}
+
 export interface Props {
   title?: string;
   description?: string;
@@ -43,12 +51,18 @@ export interface Props {
     site?: string;
     creator?: string;
   };
+  extend?: {
+    link?: Array<Link>;
+    meta?: Array<Meta>;
+  };
 }
+
 const { props } = Astro;
-const { title, description, canonical, noindex, nofollow, openGraph } = props;
+const { title, description, canonical, noindex, nofollow, openGraph, extend } = props;
 
 function validateProps(props) {
   const { openGraph, description } = props;
+
   if (openGraph) {
     if (
       !openGraph.basic ||
@@ -165,7 +179,6 @@ function generateOpenGraphArticleTags(props: Props) {
       section,
       tags,
     } = props.openGraph.article;
-
     return (
       <Fragment>
         {publishedTime ? (
@@ -203,22 +216,44 @@ function generateTwitterTags(props: Props) {
     );
   }
 }
+
+function generateExtendedTags(props: Props) {
+  if (props.extend) {
+    return (
+      <Fragment>
+        {props.extend.link?.map((attributes) => (
+          <link {...attributes} />
+        ))}
+        {props.extend.meta?.map(({ content, httpEquiv, name, property }) => (
+          <meta
+            content={content}
+            httpEquiv={httpEquiv}
+            name={name}
+            property={property}
+          />
+        ))}
+      </Fragment>
+    );
+  }
+}
 ---
 
-{title ? <title>{title}</title> : null}
+{ title ? <title>{title}</title> : null }
 
-<link
-  rel="canonical"
-  href={canonical ? canonical : Astro.request.canonicalURL.href} />
+<link rel="canonical" href={canonical || Astro.request.canonicalURL.href} />
 
-{description ? <meta name="description" content={description} /> : null}
+{ description ? <meta name="description" content={description} /> : null }
 
 <meta
   name="robots"
-  content={`${noindex ? "noindex" : "index"}${nofollow ? ", nofollow" : ", follow"}`} />
+  content={`${noindex ? "noindex" : "index"}, ${
+    nofollow ? "nofollow" : "follow"
+  }`}
+>
 
-{generateOpenGraphBasicTags(props)}
-{generateOpenGraphOptionalTags(props)}
-{generateOpenGraphImageTags(props)}
-{generateOpenGraphArticleTags(props)}
-{generateTwitterTags(props)}
+{ generateOpenGraphBasicTags(props) }
+{ generateOpenGraphOptionalTags(props) }
+{ generateOpenGraphImageTags(props) }
+{ generateOpenGraphArticleTags(props) }
+{ generateTwitterTags(props) }
+{ generateExtendedTags(props) }
