@@ -214,9 +214,10 @@ function generateTwitterTags(props: Props) {
 
 {description ? <meta name="description" content={description} /> : null}
 
-<meta
-  name="robots"
-  content={`${noindex ? "noindex" : "index"},${nofollow ? "nofollow" : "follow"}`} />
+<meta 
+	name="robots"
+	content={`${noindex ? 'noindex' : 'index'}, ${nofollow ? 'nofollow' : 'follow'}`}
+>
 
 {generateOpenGraphBasicTags(props)}
 {generateOpenGraphOptionalTags(props)}
