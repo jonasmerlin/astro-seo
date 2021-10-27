@@ -94,7 +94,7 @@ describe("index & follow combinations", () => {
 		cy.get('head meta[name="robots"]').should(
 			'have.attr',
 			'content',
-			'index,follow'
+			'index, follow'
 		)
 	})
 
@@ -103,7 +103,7 @@ describe("index & follow combinations", () => {
 		cy.get('head meta[name="robots"]').should(
 			'have.attr',
 			'content',
-			'noindex,follow'
+			'noindex, follow'
 		)
 	})
 
@@ -112,7 +112,7 @@ describe("index & follow combinations", () => {
 		cy.get('head meta[name="robots"]').should(
 			'have.attr',
 			'content',
-			'noindex,nofollow'
+			'noindex, nofollow'
 		)
 	})
 
