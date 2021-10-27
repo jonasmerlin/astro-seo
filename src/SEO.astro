@@ -232,12 +232,10 @@ function generateTwitterTags(props: Props) {
 ---
 { title ? <title>{title}</title> : null }
 
-{ canonical ? (
-	<link 
-		rel="canonical"
-		href={canonical} 
-	/>
-) : null}
+<link 
+	rel="canonical"
+	href={canonical ? canonical : Astro.request.canonicalURL.href} 
+/>
 
 { description ? (
 	<meta
