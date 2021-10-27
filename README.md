@@ -14,13 +14,13 @@ Pull requests and/or feature requests are very welcome!
 In any of your Astro pages, import Astro SEO and then use the component inside
 the `<head>` section of your HTML:
 
-```jsx
+```astro
 ---
 import { SEO } from 'astro-seo'
 ---
 
 <html lang="en">
-	<head>
+  <head>
 		<SEO 
 			title="A Very Descriptive Title"
 			description="A heavily optimized description full of well-researched keywords."
@@ -43,7 +43,7 @@ description | string | Text that gives a concise description of what your page i
 canonical | string | Prevent duplicate content issues by specifying the "canonical" or "preferred" url of a web page.
 noindex | boolean | Set this to true if you don't want search engines to index your page. Since this is an SEO component, this gets set to `false` by default. This way, indexing is strictly opt-out.
 nofollow | boolean | Set this to true if you don't want search engines to follow links on your page. Since this is an SEO component, this gets set to `false` by default. This way, following links is strictly opt-out.
-openGraph.basic.title | string | Set the title Open Graph should use. __In most situations, this should be _different_ from the value of the `description` prop.__ See [this tweet](https://twitter.com/jon_neal/status/1428721238071988237) to gain an understanding of the difference between the two. If you define this, you must define the other 3 OG basic properties as well: `type`, `image` and `url`. ([Learn more.](https://ogp.me/#metadata))
+openGraph.basic.title | string | Set the title Open Graph should use. __In most situations, this should be _different_ from the value of the `title` prop.__ See [this tweet](https://twitter.com/jon_neal/status/1428721238071988237) to gain an understanding of the difference between the two. If you define this, you must define the other 3 OG basic properties as well: `type`, `image` and `url`. ([Learn more.](https://ogp.me/#metadata))
 openGraph.basic.type | string | Set the [type](https://ogp.me/#types) Open Graph should use. If you define this, you must define the other 3 OG basic properties as well: `title`, `image` and `url`. ([Learn more.](https://ogp.me/#metadata))
 openGraph.basic.image | string | URL of the image that should be used in social media previews. If you define this, you must define the other 3 OG basic properties as well: `title`, `type` and `url`. ([Learn more.](https://ogp.me/#metadata))
 openGraph.basic.url | string | The canonical URL of your object that will be used as its permanent ID in the graph. Mostl likely either the url of the page or its canonical url (see above). If you define this, you must define the other 3 OG basic properties as well: `title`, `type` and `image`. ([Learn more.](https://ogp.me/#metadata))
