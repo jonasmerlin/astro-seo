@@ -1,235 +1,210 @@
 ---
 export interface Props {
   title?: string;
-	description?: string;
-	canonical?: string;
-	nofollow?: boolean;
-	noindex?: boolean;
-	openGraph?: {
-		basic: {
-			title: string;
-			type: string;
-			image: string;
-			url: string;
-		},
-		optional?: {
-			audio?: string;
-			description?: string; 
-			determiner?: string; 
-			locale?: string; 
-			localeAlternate?: Array<string>;
-			siteName?: string;
-			video?: string;
-		},
-		image?: {
-			url?: string, 
-			secureUrl?: string; 
-			type?: string;
-			width?: number;
-			height?: number;
-			alt?: string; 
-		},
-		article?: {
-			publishedTime?: string;
-			modifiedTime?: string;
-			expirationTime?: string;
-			authors?: string[];
-			section?: string;
-			tags?: string[];
-		}
-	},
-	twitter?: {
-		card?: string;
-		site?: string;
-		creator?: string;
-	}
+  description?: string;
+  canonical?: string;
+  nofollow?: boolean;
+  noindex?: boolean;
+  openGraph?: {
+    basic: {
+      title: string,
+      type: string,
+      image: string,
+      url: string,
+    },
+    optional?: {
+      audio?: string,
+      description?: string,
+      determiner?: string,
+      locale?: string,
+      localeAlternate?: Array<string>,
+      siteName?: string,
+      video?: string,
+    },
+    image?: {
+      url?: string,
+      secureUrl?: string,
+      type?: string,
+      width?: number,
+      height?: number,
+      alt?: string,
+    },
+    article?: {
+      publishedTime?: string,
+      modifiedTime?: string,
+      expirationTime?: string,
+      authors?: string[],
+      section?: string,
+      tags?: string[],
+    },
+  };
+  twitter?: {
+    card?: string,
+    site?: string,
+    creator?: string,
+  };
 }
 const { props } = Astro;
-const { 
-	title,
-	description,
-	canonical,
-	noindex,
-	nofollow,
-	openGraph
-} = props;
+const { title, description, canonical, noindex, nofollow, openGraph } = props;
 
 function validateProps(props) {
-	const {
-		openGraph,
-		description,
-	} = props;
+  const { openGraph, description } = props;
+  if (openGraph) {
+    if (
+      !openGraph.basic ||
+      openGraph.basic.title == null ||
+      openGraph.basic.type == null ||
+      openGraph.basic.image == null ||
+      openGraph.basic.url == null
+    ) {
+      throw new Error(
+        "If you pass the openGraph prop, you have to define the basic properties title, type, image, and url!"
+      );
+    }
+  }
 
-	if (openGraph) {
-		if (
-			!openGraph.basic
-			|| openGraph.basic.title == null
-			|| openGraph.basic.type == null
-			|| openGraph.basic.image == null
-			|| openGraph.basic.url == null
-		) {
-			throw new Error("If you pass the openGraph prop, you have to define the basic properties title, type, image, and url!")
-		}
-	}
+  if (title && openGraph?.basic.title) {
+    if (title == openGraph.basic.title) {
+      console.warn(
+        "WARNING(astro-seo): You passed the same value to `title` and `openGraph.optional.title`. This is most likely not what you want. See docs for more."
+      );
+    }
+  }
 
-	if (title && openGraph?.basic.title) {
-		if (title == openGraph.basic.title) {
-			console.warn("WARNING(astro-seo): You passed the same value to `title` and `openGraph.optional.title`. This is most likely not what you want. See docs for more.")
-		}
-	}
-
-	if (openGraph?.basic?.image && !openGraph?.image?.alt) {
-		console.warn("WARNING(astro-seo): You defined `openGraph.basic.image`, but didn't define `openGraph.image.alt`. This is stongly discouraged.'")
-	}
+  if (openGraph?.basic?.image && !openGraph?.image?.alt) {
+    console.warn(
+      "WARNING(astro-seo): You defined `openGraph.basic.image`, but didn't define `openGraph.image.alt`. This is stongly discouraged.'"
+    );
+  }
 }
 
 validateProps(props);
 
 function generateOpenGraphBasicTags(props: Props) {
-	if (props.openGraph) {
-		return (
-			<Fragment>
-				<meta property="og:title" content={openGraph.basic.title} />
-				<meta property="og:type" content={openGraph.basic.type} />
-				<meta property="og:image" content={openGraph.basic.image} />
-				<meta property="og:url" content={openGraph.basic.url} />
-			</Fragment>
-		)
-	} else {
-		return null
-	}
+  if (props.openGraph) {
+    return (
+      <Fragment>
+        <meta property="og:title" content={openGraph.basic.title} />
+        <meta property="og:type" content={openGraph.basic.type} />
+        <meta property="og:image" content={openGraph.basic.image} />
+        <meta property="og:url" content={openGraph.basic.url} />
+      </Fragment>
+    );
+  } else {
+    return null;
+  }
 }
 
 function generateOpenGraphOptionalTags(props: Props) {
-	if (openGraph && openGraph.optional) {
-		return (
-				<Fragment>
-					{ openGraph.optional.audio ? (
-						<meta property="og:audio" content={openGraph.optional.audio} />
-					) : null }
-					{ openGraph.optional.description ? (
-						<meta property="og:description" content={openGraph.optional.description} />
-					) : null }
-					{ openGraph.optional.determiner ? (
-						<meta property="og:determiner" content={openGraph.optional.determiner} />
-					) : null }
-					{ openGraph.optional.locale ? (
-						<meta property="og:locale" content={openGraph.optional.locale} />
-					) : null }
-					{ openGraph.optional.localeAlternate?.map((locale) => (
-						<meta property="og:locale:alternate" content={locale} />
-					))}
-					{ openGraph.optional.siteName ? (
-						<meta property="og:site_name" content={openGraph.optional.siteName } />
-					) : null}
-					{ openGraph.optional.video ? (
-						<meta property="og:video" content={openGraph.optional.video } />
-					) : null }
-				</Fragment>
-			)
-		} else {
-			return null;
-		}
-	}
+  if (openGraph && openGraph.optional) {
+    return (
+      <Fragment>
+        {openGraph.optional.audio ? (
+          <meta property="og:audio" content={openGraph.optional.audio} />
+        ) : null}
+        {openGraph.optional.description ? (
+          <meta
+            property="og:description"
+            content={openGraph.optional.description}
+          />
+        ) : null}
+        {openGraph.optional.determiner ? (
+          <meta
+            property="og:determiner"
+            content={openGraph.optional.determiner}
+          />
+        ) : null}
+        {openGraph.optional.locale ? (
+          <meta property="og:locale" content={openGraph.optional.locale} />
+        ) : null}
+        {openGraph.optional.localeAlternate?.map((locale) => (
+          <meta property="og:locale:alternate" content={locale} />
+        ))}
+        {openGraph.optional.siteName ? (
+          <meta property="og:site_name" content={openGraph.optional.siteName} />
+        ) : null}
+        {openGraph.optional.video ? (
+          <meta property="og:video" content={openGraph.optional.video} />
+        ) : null}
+      </Fragment>
+    );
+  } else {
+    return null;
+  }
+}
 
-	function generateOpenGraphImageTags(props: Props) {
-		if (props.openGraph?.image) {
-			const {
-				url,
-				secureUrl, 
-				type,
-				width,
-				height,
-				alt
-			} = props.openGraph.image;
-
-			return (
-				<Fragment>
-					<meta property="og:image:url" content={openGraph.basic.image} />	
-					{secureUrl ? (
-						<meta property="og:image:secure_url" content={secureUrl} />	
-					) : null }
-					{type ? (
-						<meta property="og:image:type" content={type} />	
-					) : null }
-					{width ? (
-						<meta property="og:image:width" content={width} />	
-					) : null }
-					{!(height === null) ? (
-						<meta property="og:image:height" content={height} />	
-					) : null }
-					{!(alt === null) ? (
-						<meta property="og:image:alt" content={alt} />	
-					) : null }
-				</Fragment>
-		)
-	}
+function generateOpenGraphImageTags(props: Props) {
+  if (props.openGraph?.image) {
+    const { url, secureUrl, type, width, height, alt } = props.openGraph.image;
+    return (
+      <Fragment>
+        <meta property="og:image:url" content={openGraph.basic.image} />
+        {secureUrl ? (
+          <meta property="og:image:secure_url" content={secureUrl} />
+        ) : null}
+        {type ? <meta property="og:image:type" content={type} /> : null}
+        {width ? <meta property="og:image:width" content={width} /> : null}
+        {!(height === null) ? (
+          <meta property="og:image:height" content={height} />
+        ) : null}
+        {!(alt === null) ? (
+          <meta property="og:image:alt" content={alt} />
+        ) : null}
+      </Fragment>
+    );
+  }
 }
 
 function generateOpenGraphArticleTags(props: Props) {
-	if (props.openGraph?.article) {
-		const {
-			publishedTime,
-			modifiedTime,
-			expirationTime,
-			authors,
-			section,
-			tags
-		} = props.openGraph.article;
+  if (props.openGraph?.article) {
+    const {
+      publishedTime,
+      modifiedTime,
+      expirationTime,
+      authors,
+      section,
+      tags,
+    } = props.openGraph.article;
 
-		return (
-			<Fragment>
-				{ publishedTime ? (
-					<meta property="article:published_time" content={publishedTime} />
-				) : null}
-				{ modifiedTime ? (
-					<meta property="article:modified_time" content={modifiedTime} />
-				) : null}
-				{ expirationTime ? (
-					<meta property="article:expiration_time" content={expirationTime} />
-				) : null}
-				{ authors ? (
-					authors.map((author) => (
-						<meta property="article:author" content={author} />
-					))
-				) : null}
-				{ section ? (
-					<meta property="article:section" content={section} />
-				) : null}
-				{ tags ? (
-					tags.map((tag) => (
-						<meta property="article:tag" content={tag} />
-					))
-				) : null}
-			</Fragment>
-		)
-	}
+    return (
+      <Fragment>
+        {publishedTime ? (
+          <meta property="article:published_time" content={publishedTime} />
+        ) : null}
+        {modifiedTime ? (
+          <meta property="article:modified_time" content={modifiedTime} />
+        ) : null}
+        {expirationTime ? (
+          <meta property="article:expiration_time" content={expirationTime} />
+        ) : null}
+        {authors
+          ? authors.map((author) => (
+              <meta property="article:author" content={author} />
+            ))
+          : null}
+        {section ? <meta property="article:section" content={section} /> : null}
+        {tags
+          ? tags.map((tag) => <meta property="article:tag" content={tag} />)
+          : null}
+      </Fragment>
+    );
+  }
 }
 
 function generateTwitterTags(props: Props) {
-	if (props.twitter) {
-		const {
-			card,
-			site,
-			creator
-		} = props.twitter;
-
-		return (
-			<Fragment>
-				{ card ? (
-					<meta name="twitter:card" content={card}/>
-				) : null}
-				{ site ? (
-					<meta name="twitter:site" content={site}/>
-				) : null}
-				{ creator ? (
-					<meta name="twitter:creator" content={creator}/>
-				) : null}
-			</Fragment>
-		)
-	}
+  if (props.twitter) {
+    const { card, site, creator } = props.twitter;
+    return (
+      <Fragment>
+        {card ? <meta name="twitter:card" content={card} /> : null}
+        {site ? <meta name="twitter:site" content={site} /> : null}
+        {creator ? <meta name="twitter:creator" content={creator} /> : null}
+      </Fragment>
+    );
+  }
 }
 ---
+
 { title ? <title>{title}</title> : null }
 
 { canonical ? (
