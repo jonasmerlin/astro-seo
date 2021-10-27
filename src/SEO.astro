@@ -7,41 +7,41 @@ export interface Props {
   noindex?: boolean;
   openGraph?: {
     basic: {
-      title: string,
-      type: string,
-      image: string,
-      url: string,
-    },
+      title: string;
+      type: string;
+      image: string;
+      url: string;
+    };
     optional?: {
-      audio?: string,
-      description?: string,
-      determiner?: string,
-      locale?: string,
-      localeAlternate?: Array<string>,
-      siteName?: string,
-      video?: string,
-    },
+      audio?: string;
+      description?: string;
+      determiner?: string;
+      locale?: string;
+      localeAlternate?: Array<string>;
+      siteName?: string;
+      video?: string;
+    };
     image?: {
-      url?: string,
-      secureUrl?: string,
-      type?: string,
-      width?: number,
-      height?: number,
-      alt?: string,
-    },
+      url?: string;
+      secureUrl?: string;
+      type?: string;
+      width?: number;
+      height?: number;
+      alt?: string;
+    };
     article?: {
-      publishedTime?: string,
-      modifiedTime?: string,
-      expirationTime?: string,
-      authors?: string[],
-      section?: string,
-      tags?: string[],
-    },
+      publishedTime?: string;
+      modifiedTime?: string;
+      expirationTime?: string;
+      authors?: string[];
+      section?: string;
+      tags?: string[];
+    };
   };
   twitter?: {
-    card?: string,
-    site?: string,
-    creator?: string,
+    card?: string;
+    site?: string;
+    creator?: string;
   };
 }
 const { props } = Astro;
@@ -205,29 +205,18 @@ function generateTwitterTags(props: Props) {
 }
 ---
 
-{ title ? <title>{title}</title> : null }
+{title ? <title>{title}</title> : null}
 
-{ canonical ? (
-	<link 
-		rel="canonical"
-		href={canonical} 
-	/>
-) : null}
+{canonical ? <link rel="canonical" href={canonical} /> : null}
 
-{ description ? (
-	<meta
-  	name="description"
-  	content={description}
-  />
-) : null }
+{description ? <meta name="description" content={description} /> : null}
 
-<meta 
-	name="robots"
-	content={`${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'}`}
->
+<meta
+  name="robots"
+  content={`${noindex ? "noindex" : "index"},${nofollow ? "nofollow" : "follow"}`} />
 
-{ generateOpenGraphBasicTags(props) }
-{ generateOpenGraphOptionalTags(props) }
-{ generateOpenGraphImageTags(props) }
-{ generateOpenGraphArticleTags(props) }
-{ generateTwitterTags(props) }
+{generateOpenGraphBasicTags(props)}
+{generateOpenGraphOptionalTags(props)}
+{generateOpenGraphImageTags(props)}
+{generateOpenGraphArticleTags(props)}
+{generateTwitterTags(props)}
