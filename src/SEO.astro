@@ -25,7 +25,7 @@ export interface Props {
       description?: string;
       determiner?: string;
       locale?: string;
-      localeAlternate?: Array<string>;
+      localeAlternate?: string[];
       siteName?: string;
       video?: string;
     };
@@ -52,8 +52,8 @@ export interface Props {
     creator?: string;
   };
   extend?: {
-    link?: Array<Partial<Link>>;
-    meta?: Array<Partial<Meta>>;
+    link?: Partial<Link>[];
+    meta?: Partial<Meta>[];
   };
 }
 
