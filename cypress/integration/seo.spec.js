@@ -337,6 +337,8 @@ describe("Doesn't extend tags", () => {
   });
 
   it("doesn't extend meta tags", () => {
-    cy.get("head meta:not([property='description'])").should("not.exist");
+    cy.get(
+      "head meta:not([charset], [name='viewport'], [name='description'], [name='robots'])"
+    ).should("not.exist");
   });
 });
