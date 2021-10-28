@@ -52,13 +52,14 @@ export interface Props {
     creator?: string;
   };
   extend?: {
-    link?: Array<Link>;
-    meta?: Array<Meta>;
+    link?: Array<Partial<Link>>;
+    meta?: Array<Partial<Meta>>;
   };
 }
 
 const { props } = Astro;
-const { title, description, canonical, noindex, nofollow, openGraph, extend } = props;
+const { title, description, canonical, noindex, nofollow, openGraph, extend } =
+  props;
 
 function validateProps(props) {
   const { openGraph, description } = props;
@@ -238,22 +239,19 @@ function generateExtendedTags(props: Props) {
 }
 ---
 
-{ title ? <title>{title}</title> : null }
+{title ? <title>{title}</title> : null}
 
 <link rel="canonical" href={canonical || Astro.request.canonicalURL.href} />
 
-{ description ? <meta name="description" content={description} /> : null }
+{description ? <meta name="description" content={description} /> : null}
 
 <meta
   name="robots"
-  content={`${noindex ? "noindex" : "index"}, ${
-    nofollow ? "nofollow" : "follow"
-  }`}
->
+  content={`${noindex ? "noindex" : "index"}, ${nofollow ? "nofollow" : "follow"}`} />
 
-{ generateOpenGraphBasicTags(props) }
-{ generateOpenGraphOptionalTags(props) }
-{ generateOpenGraphImageTags(props) }
-{ generateOpenGraphArticleTags(props) }
-{ generateTwitterTags(props) }
-{ generateExtendedTags(props) }
+{generateOpenGraphBasicTags(props)}
+{generateOpenGraphOptionalTags(props)}
+{generateOpenGraphImageTags(props)}
+{generateOpenGraphArticleTags(props)}
+{generateTwitterTags(props)}
+{generateExtendedTags(props)}
