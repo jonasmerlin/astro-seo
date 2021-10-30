@@ -72,6 +72,29 @@ twitter.creator | string | Sets `twitter:creator`. (Twitter) @username for the c
 extend.link | Array<Link extends HTMLLinkElement { prefetch: boolean; }> | An array of free-form `<link>` you'd like to define.
 extend.meta | Array<Meta extends HTMLMetaElement { property: string; }> | An array of free-form `<meta>` tags you'd like to define.
 
+## Extending Astro SEO
+
+With the `v0.3.14` release, you can now define any `<meta>` and `<link>` tag you want using the `extend` prop. For example :
+
+```js
+<SEO
+  extend={{
+    // extending the default link tags
+    link: [{ rel: "icon", href: "/favicon.ico" }],
+    // extending the default meta tags
+    meta: [
+      {
+        name: "twitter:image",
+        content:
+          "https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png",
+      },
+      { name: "twitter:title", content: "Tinker Tailor Soldier Spy" },
+      { name: "twitter:description", content: "Agent" },
+    ],
+  }}
+/>
+```
+
 ## Open Graph
 
 Open Graph properties are passed as one object to the prop `openGraph`. The structure of this object is modeled after the [Open Graph documentation](https://ogp.me/) itself. That means it uses nested objects to differentiate between basic and optional properties, as well as object specific ones. __If you pass an openGraph config, you _must_ define all 4 of the basic properties (`title`, `type`, `image` and `url`).__ The optional properties are all ... well, optional.
