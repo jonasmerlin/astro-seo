@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.14](https://github.com/jonasmerlin/astro-seo/compare/v0.3.13...v0.3.14) (2021-10-30)
+
+
+### Bug Fixes
+
+* change robots meta tag formatting ([7a35ada](https://github.com/jonasmerlin/astro-seo/commit/7a35adad413a2d5a2cffebb3993d1297b5564af2))
+
 ### [0.3.13](https://github.com/jonasmerlin/astro-seo/compare/v0.3.12...v0.3.13) (2021-10-19)
 
 ### [0.3.12](https://github.com/jonasmerlin/astro-seo/compare/v0.3.11...v0.3.12) (2021-10-06)
