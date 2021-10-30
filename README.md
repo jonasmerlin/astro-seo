@@ -69,6 +69,8 @@ openGraph.article.tags | string[] | Sets `article:tag`. Tag words associated wit
 twitter.card | string | Sets `twitter:card`. The card type, which will be one of “summary”, “summary_large_image”, “app”, or “player”.
 twitter.site | string | Sets `twitter:site`. (Twitter) @username for the website used in the card footer.
 twitter.creator | string | Sets `twitter:creator`. (Twitter) @username for the content creator / author.
+extend.link | Array<Link extends HTMLLinkElement { prefetch: boolean; }> | An array of free-form `<link>` you'd like to define.
+extend.meta | Array<Meta extends HTMLMetaElement { property: string; }> | An array of free-form `<meta>` tags you'd like to define.
 
 ## Open Graph
 
