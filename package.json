@@ -27,7 +27,7 @@
     "format": "yarn prettier -w ./src"
   },
   "devDependencies": {
-    "astro": "^0.20.12",
+      "astro": "^0.20.12",
     "cypress": "^8.3.1",
     "prettier": "^2.4.1",
     "prettier-plugin-astro": "^0.0.9"
