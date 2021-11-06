@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.15](https://github.com/jonasmerlin/astro-seo/compare/v0.3.14...v0.3.15) (2021-11-06)
+
+
+### Features
+
+* upgrade for astro@0.21 ([ed3b2ee](https://github.com/jonasmerlin/astro-seo/commit/ed3b2ee4b8a1aadf4459f8c9ab7c2062eaf7e93d))
+
+
+### Bug Fixes
+
+* **OpenGraphImageTags:** destructer basic.image prop ([6c6b35d](https://github.com/jonasmerlin/astro-seo/commit/6c6b35d72d91964583db1caf7238394daa7c1046))
+
 ### [0.3.14](https://github.com/jonasmerlin/astro-seo/compare/v0.3.13...v0.3.14) (2021-10-30)
 
 
