@@ -1,6 +1,6 @@
 {
   "name": "astro-seo",
-  "version": "0.3.15",
+  "version": "0.4.0",
   "description": "Makes it easy to add SEO relevant tags to your Astro app.",
   "homepage": "https://github.com/jonasmerlin/astro-seo#readme",
   "bugs": {
@@ -24,12 +24,14 @@
     "cypress:open": "cypress open",
     "dev": "astro dev",
     "preview": "astro preview",
-    "format": "yarn prettier -w ./src"
+    "format": "yarn prettier -w ./src",
+    "release": "standard-version"
   },
   "devDependencies": {
     "astro": "^0.20.12",
     "cypress": "^8.3.1",
     "prettier": "^2.4.1",
-    "prettier-plugin-astro": "^0.0.9"
+    "prettier-plugin-astro": "^0.0.9",
+    "standard-version": "^9.3.2"
   }
 }
