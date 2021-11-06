@@ -83,6 +83,38 @@ describe("Basic Tags", () => {
   });
 });
 
+describe("Basic Tags Without URL", () => {
+  beforeEach(() => {
+    cy.visit("localhost:3000/ogBasicTagsWithoutUrl");
+  });
+
+  it("sets the Title, Type, and Image basic Open Graph properties", () => {
+    cy.get('head meta[property="og:title"]').should(
+      "have.attr",
+      "content",
+      "Tinker Tailor Soldier Spy"
+    );
+    cy.get('head meta[property="og:type"]').should(
+      "have.attr",
+      "content",
+      "book"
+    );
+    cy.get('head meta[property="og:image"]').should(
+      "have.attr",
+      "content",
+      "https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png"
+    );
+  });
+
+  it("The Open Graph Url property defaults to Astro.request.canonicalURL.href", () => {
+    cy.get('head meta[property="og:url"]').should(
+      "have.attr",
+      "content",
+      "http://localhost:3000/ogBasicTagsWithoutUrl/"
+    );
+  })
+});
+
 describe("index & follow combinations", () => {
   it("applies correct defaults", () => {
     cy.visit("localhost:3000");

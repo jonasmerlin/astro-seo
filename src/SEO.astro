@@ -25,7 +25,7 @@ export interface Props {
       title: string;
       type: string;
       image: string;
-      url: string;
+      url?: string;
     };
     optional?: {
       audio?: string;
@@ -75,11 +75,10 @@ function validateProps(props) {
       !openGraph.basic ||
       openGraph.basic.title == null ||
       openGraph.basic.type == null ||
-      openGraph.basic.image == null ||
-      openGraph.basic.url == null
+      openGraph.basic.image == null
     ) {
       throw new Error(
-        "If you pass the openGraph prop, you have to define the basic properties title, type, image, and url!"
+        "If you pass the openGraph prop, you have to at least define the title, type, and image basic properties!"
       );
     }
   }
