@@ -12,7 +12,8 @@
   },
   "files": [
     "src/index.js",
-    "src/SEO.astro"
+    "src/SEO.astro",
+    "components"
   ],
   "exports": "./src/index.js",
   "keywords": [
