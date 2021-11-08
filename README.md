@@ -16,22 +16,18 @@ the `<head>` section of your HTML:
 
 ```astro
 ---
-import { SEO } from 'astro-seo'
+import { SEO } from "astro-seo";
 ---
 
 <html lang="en">
   <head>
-		<SEO 
-			title="A Very Descriptive Title"
-			description="A heavily optimized description full of well-researched keywords."
-		/>
-	</head>
-	// ... rest of <head>
-
-	<body>
-		// ... body
-	</body>
-</html>
+    <SEO
+      title="A Very Descriptive Title"
+      description="A heavily optimized description full of well-researched keywords." />
+  </head>
+  // ... rest of <head>
+    <body> // ... body </body>
+  </head></html>
 ```
 
 ## Supported Props
@@ -102,21 +98,21 @@ Open Graph properties are passed as one object to the prop `openGraph`. The stru
 ```typescript
 // TypeScript interface of openGraph prop
 openGraph?: {
-	basic: {
-		title: string;
-		type: string;
-		image: string;
-		url: string;
-	},
-	optional?: {
-		audio?: string;
-		description?: string; 
-		determiner?: string; 
-		locale?: string; 
-		localeAlternate?: Array<string>;
-		siteName?: string;
-		video?: string;
-	}
+  basic: {
+    title: string;
+    type: string;
+    image: string;
+    url: string;
+  },
+  optional?: {
+    audio?: string;
+    description?: string;
+    determiner?: string;
+    locale?: string;
+    localeAlternate?: Array<string>;
+    siteName?: string;
+    video?: string;
+  }
 }
 ```
 
