@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.1](https://github.com/jonasmerlin/astro-seo/compare/v0.4.0...v0.4.1) (2021-11-08)
+
+
+### Bug Fixes
+
+* added components to files in package.json ([0d7e3ef](https://github.com/jonasmerlin/astro-seo/commit/0d7e3ef26262e2578c41b40ee054b9517dc4ac6c))
+
 ## [0.4.0](https://github.com/jonasmerlin/astro-seo/compare/v0.3.15...v0.4.0) (2021-11-06)
 
 ### [0.3.15](https://github.com/jonasmerlin/astro-seo/compare/v0.3.14...v0.3.15) (2021-11-06)
