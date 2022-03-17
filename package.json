@@ -1,15 +1,15 @@
 {
-  "name": "astro-seo",
-  "version": "0.4.2",
+  "name": "astro-xseo",
+  "version": "0.4.3",
   "description": "Makes it easy to add SEO relevant tags to your Astro app.",
-  "homepage": "https://github.com/jonasmerlin/astro-seo#readme",
+  "homepage": "https://github.com/astro-community/astro-seo#readme",
   "bugs": {
-    "url": "https://github.com/jonasmerlin/astro-seo/issues"
+    "url": "https://github.com/astro-community/astro-seo/issues"
   },
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jonasmerlin/astro-seo"
+    "url": "https://github.com/astro-community/astro-seo"
   },
   "files": [
     "src/index.js",
@@ -21,6 +21,7 @@
     "astro-component"
   ],
   "author": "Jonas Schumacher",
+  "contributors": ["aFuzzyBear"],
   "license": "MIT",
   "scripts": {
     "cypress:open": "cypress open",
