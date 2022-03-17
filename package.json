@@ -6,6 +6,7 @@
   "bugs": {
     "url": "https://github.com/jonasmerlin/astro-seo/issues"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/jonasmerlin/astro-seo"
