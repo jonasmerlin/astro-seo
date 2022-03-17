@@ -11,11 +11,11 @@
     "url": "https://github.com/jonasmerlin/astro-seo"
   },
   "files": [
-    "src/index.js",
+    "src/index.mjs",
     "src/SEO.astro",
     "src/components"
   ],
-  "exports": "./src/index.js",
+  "exports": "./src/index.mjs",
   "keywords": [
     "astro-component"
   ],
