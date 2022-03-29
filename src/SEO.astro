@@ -101,7 +101,7 @@ function validateProps(props) {
 validateProps(props);
 ---
 
-{title ? <title set:html={title}></title> : null}
+{title ? <title>{title}</title> : null}
 
 <link rel="canonical" href={canonical || Astro.request.canonicalURL.href} />
 
