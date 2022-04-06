@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/jonasmerlin/astro-seo/compare/v0.4.4...v0.5.0) (2022-04-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* 
+
+### Features
+
+* upgrade to Astro v0.26 ([03b0039](https://github.com/jonasmerlin/astro-seo/commit/03b00398d4acae206ad3363e35cb1169be033f94))
+
 ### [0.4.4](https://github.com/jonasmerlin/astro-seo/compare/v0.4.3...v0.4.4) (2022-03-29)
 
 ### [0.4.3](https://github.com/jonasmerlin/astro-seo/compare/v0.4.2...v0.4.3) (2022-03-29)
