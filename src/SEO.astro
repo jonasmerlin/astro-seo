@@ -103,7 +103,7 @@ validateProps(props);
 
 {title ? <title>{title}</title> : null}
 
-<link rel="canonical" href={canonical || Astro.request.canonicalURL.href} />
+<link rel="canonical" href={canonical || Astro.canonicalURL.href} />
 
 {description ? <meta name="description" content={description} /> : null}
 
