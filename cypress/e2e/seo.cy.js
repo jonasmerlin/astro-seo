@@ -106,11 +106,11 @@ describe("Basic Tags Without URL", () => {
     );
   });
 
-  it("The Open Graph Url property defaults to Astro.request.canonicalURL.href", () => {
+  it("The Open Graph Url property defaults to Astro.request.url.href", () => {
     cy.get('head meta[property="og:url"]').should(
       "have.attr",
       "content",
-      "http://localhost:3000/ogBasicTagsWithoutUrl/"
+      "http://localhost:3000/ogBasicTagsWithoutUrl"
     );
   })
 });

@@ -26,11 +26,12 @@
     "dev": "astro dev",
     "preview": "astro preview",
     "format": "yarn prettier -w ./src",
-    "release": "standard-version"
+    "release": "standard-version",
+    "check": "astro check"
   },
   "devDependencies": {
-    "astro": "^0.26.1",
-    "cypress": "^9.5.3",
+    "astro": "^1.0.0-rc.1",
+    "cypress": "^10.3.1",
     "prettier": "^2.4.1",
     "prettier-plugin-astro": "^0.0.9",
     "standard-version": "^9.3.2"
