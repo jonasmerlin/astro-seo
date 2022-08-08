@@ -18,6 +18,7 @@
   "exports": "./src/index.mjs",
   "keywords": [
     "astro-component"
+    "seo"
   ],
   "author": "Jonas Schumacher",
   "license": "MIT",
