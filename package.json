@@ -27,7 +27,8 @@
     "cypress:open": "cypress open",
     "dev": "astro dev",
     "preview": "astro preview",
-    "format": "yarn prettier -w ./src",
+    "format": "prettier -w ./src",
+    "check:format": "prettier -c ./src",
     "release": "standard-version",
     "check": "astro check"
   },
