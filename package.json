@@ -17,7 +17,7 @@
   ],
   "exports": "./src/index.mjs",
   "keywords": [
-    "astro-component"
+    "astro-component",
     "seo"
   ],
   "author": "Jonas Schumacher",
