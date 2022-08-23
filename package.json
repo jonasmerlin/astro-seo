@@ -26,7 +26,8 @@
   "scripts": {
     "cypress:open": "cypress open",
     "dev": "astro dev",
-    "preview": "astro preview",
+    "build": "astro build",
+    "start": "astro preview",
     "format": "prettier -w ./src",
     "check:format": "prettier -c ./src",
     "release": "standard-version",
