@@ -23,7 +23,29 @@ import { SEO } from "astro-seo";
   <head>
     <SEO
       title="A Very Descriptive Title"
-      description="A heavily optimized description full of well-researched keywords." />
+      description="A heavily optimized description full of well-researched keywords."
+      openGraph={{
+        basic: {
+          title="A Very Descriptive Title"
+        }
+      }}
+      twitter={{
+        creator: "@jonasmerlins1"
+      }}
+      extend={{
+        // extending the default link tags
+        link: [{ rel: "icon", href: "/favicon.ico" }],
+        // extending the default meta tags
+        meta: [
+          {
+            name: "twitter:image",
+            content: "https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png",
+          },
+          { name: "twitter:title", content: "Tinker Tailor Soldier Spy" },
+          { name: "twitter:description", content: "Agent" },
+        ],
+      }}
+    />
   </head>
   // ... rest of <head>
     <body> // ... body </body>
