@@ -17,6 +17,14 @@ describe("Basic Tags", () => {
     );
   });
 
+  it("sets the charset", () => {
+    cy.get('head meta[charset="utf-8"]').should(
+      "have.attr",
+      "charset",
+      "UTF-8"
+    );
+  });
+
   it("sets canonical link", () => {
     cy.get('head link[rel="canonical"]').should("have.attr", "href", "Zach");
   });
@@ -112,7 +120,7 @@ describe("Basic Tags Without URL", () => {
       "content",
       "http://localhost:3000/ogBasicTagsWithoutUrl"
     );
-  })
+  });
 });
 
 describe("index & follow combinations", () => {

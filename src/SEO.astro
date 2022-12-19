@@ -16,6 +16,7 @@ export interface Meta extends HTMLMetaElement {
 
 export interface Props {
   title?: string;
+  charset?: string;
   description?: string;
   canonical?: string;
   nofollow?: boolean;
@@ -65,7 +66,7 @@ export interface Props {
 }
 
 const { props } = Astro;
-const { title, description, canonical, noindex, nofollow } = props;
+const { title, description, canonical, noindex, nofollow, charset } = props;
 
 function validateProps(props) {
   const { openGraph, description } = props;
@@ -102,6 +103,8 @@ validateProps(props);
 ---
 
 {title ? <title set:html={title}></title> : null}
+
+{charset ? <meta charset={charset}> : null}
 
 <link rel="canonical" href={canonical || Astro.url.href} />
 
