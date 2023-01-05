@@ -26,7 +26,7 @@ import { SEO } from "astro-seo";
       description="A heavily optimized description full of well-researched keywords."
       openGraph={{
         basic: {
-          title="A Very Descriptive Title"
+          title: "A Very Descriptive Title"
         }
       }}
       twitter={{
