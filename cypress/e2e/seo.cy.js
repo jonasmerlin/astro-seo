@@ -294,6 +294,42 @@ describe("Twitter tags", () => {
       "@astrodotbuild"
     );
   });
+
+  it("sets twitter:title tag", () => {
+    cy.visit("localhost:3000/twitterTags");
+    cy.get('head meta[name="twitter:title"]').should(
+      "have.attr",
+      "content",
+      "Astro"
+    );
+  });
+
+  it("sets twitter:description tag", () => {
+    cy.visit("localhost:3000/twitterTags");
+    cy.get('head meta[name="twitter:description"]').should(
+      "have.attr",
+      "content",
+      "No JS. No pain."
+    );
+  });
+
+  it("sets twitter:image tag", () => {
+    cy.visit("localhost:3000/twitterTags");
+    cy.get('head meta[name="twitter:image"]').should(
+      "have.attr",
+      "content",
+      "url"
+    );
+  });
+
+  it("sets twitter:image:alt tag", () => {
+    cy.visit("localhost:3000/twitterTags");
+    cy.get('head meta[name="twitter:image:alt"]').should(
+      "have.attr",
+      "content",
+      "Image description."
+    );
+  });
 });
 
 describe("Extended tags", () => {

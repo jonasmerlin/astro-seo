@@ -85,9 +85,13 @@ openGraph.article.expirationTime | string | Sets `article:expiration_time`. The 
 openGraph.article.author | string[] | Sets `article:author`. The author(s) of the article, if it's only one, pass an array with one entry. If there are multiple, multiple tags with descending relevance will be created.
 openGraph.article.section | string | Sets `article:section`. A high-level section name. E.g. Technology
 openGraph.article.tags | string[] | Sets `article:tag`. Tag words associated with this article. If it's only one, pass an array with one entry. If there are multiple, multiple tags with descending relevance will be created.
-twitter.card | string | Sets `twitter:card`. The card type, which will be one of “summary”, “summary_large_image”, “app”, or “player”.
+twitter.card | TwitterCardType (string) | Sets `twitter:card`. The card type. Must be one of “summary”, “summary_large_image”, “app”, or “player”.
 twitter.site | string | Sets `twitter:site`. (Twitter) @username for the website used in the card footer.
 twitter.creator | string | Sets `twitter:creator`. (Twitter) @username for the content creator / author.
+twitter.title | string | Sets `twitter:title`. Title of the page or article (equivalent to Open Graph's og:title).
+twitter.image | string | Sets `twitter:image`. Full link to the image you want to use for the page (equivalent to Open Graph's og:image).
+twitter.imageAlt | string | Sets `twitter:image:alt`. A description of what is in the image (not a caption). __If the page specifies `twitter.image` it should specify `twitter.imageAlt`__.
+twitter.description | string | Sets `twitter:description`. A one to two sentence description of your object.
 extend.link | Array<Link extends HTMLLinkElement { prefetch: boolean; }> | An array of free-form `<link>` you'd like to define.
 extend.meta | Array<Meta extends HTMLMetaElement { property: string; }> | An array of free-form `<meta>` tags you'd like to define.
 

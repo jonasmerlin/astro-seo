@@ -6,6 +6,8 @@ import OpenGraphOptionalTags from "./components/OpenGraphOptionalTags.astro";
 import ExtendedTags from "./components/ExtendedTags.astro";
 import TwitterTags from "./components/TwitterTags.astro";
 
+type TwitterCardType = "summary" | "summary_large_image" | "app" | "player";
+
 export interface Link extends HTMLLinkElement {
   prefetch: boolean;
   crossorigin: string;
@@ -56,9 +58,13 @@ export interface Props {
     };
   };
   twitter?: {
-    card?: string;
+    card?: TwitterCardType;
     site?: string;
     creator?: string;
+    title?: string;
+    description?: string;
+    image?: string;
+    imageAlt?: string;
   };
   extend?: {
     link?: Partial<Link>[];
