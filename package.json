@@ -34,10 +34,10 @@
     "check": "astro check"
   },
   "devDependencies": {
-    "astro": "^1.0.0-rc.1",
-    "cypress": "^10.3.1",
-    "prettier": "^2.4.1",
-    "prettier-plugin-astro": "^0.0.9",
-    "standard-version": "^9.3.2"
+    "astro": "^1.9.2",
+    "cypress": "^12.3.0",
+    "prettier": "^2.8.3",
+    "prettier-plugin-astro": "^0.7.2",
+    "standard-version": "^9.5.0"
   }
 }
