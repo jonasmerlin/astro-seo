@@ -1,5 +1,6 @@
 ---
-const { card, site, title, creator, description, image, imageAlt } = Astro.props.twitter;
+const { card, site, title, creator, description, image, imageAlt } =
+  Astro.props.twitter;
 ---
 
 {card ? <meta name="twitter:card" content={card} /> : null}
