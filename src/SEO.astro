@@ -109,9 +109,9 @@ function validateProps(props) {
 validateProps(props);
 ---
 
-{title ? <title set:html={title}></title> : null}
+{title ? <title set:html={title} /> : null}
 
-{charset ? <meta charset={charset}> : null}
+{charset ? <meta charset={charset} /> : null}
 
 <link rel="canonical" href={canonical || Astro.url.href} />
 
@@ -119,7 +119,10 @@ validateProps(props);
 
 <meta
   name="robots"
-  content={`${noindex ? "noindex" : "index"}, ${nofollow ? "nofollow" : "follow"}`} />
+  content={`${noindex ? "noindex" : "index"}, ${
+    nofollow ? "nofollow" : "follow"
+  }`}
+/>
 
 {props.openGraph && <OpenGraphBasicTags {...props} />}
 {props.openGraph?.optional && <OpenGraphOptionalTags {...props} />}
