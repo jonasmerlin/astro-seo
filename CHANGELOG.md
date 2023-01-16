@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.0](https://github.com/jonasmerlin/astro-seo/compare/v0.6.1...v0.7.0) (2023-01-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* add rest of twitter tags
+
+### Features
+
+* add rest of twitter tags ([c168701](https://github.com/jonasmerlin/astro-seo/commit/c168701e23317a25a07cc61d6864b5ab0d332056))
+
+
+### Bug Fixes
+
+* add support for crossorigin links ([3c01b1e](https://github.com/jonasmerlin/astro-seo/commit/3c01b1eb0ea5c2eb2f2db290143d689af2ecab85))
+
 ### [0.6.1](https://github.com/jonasmerlin/astro-seo/compare/v0.6.0...v0.6.1) (2022-12-19)
 
 ## [0.6.0](https://github.com/jonasmerlin/astro-seo/compare/v0.5.2...v0.6.0) (2022-08-24)
