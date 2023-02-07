@@ -19,6 +19,8 @@ export interface Meta extends HTMLMetaElement {
 
 export interface Props {
   title?: string;
+  titleTemplate?: string;
+  titleDefault?: string;
   charset?: string;
   description?: string;
   canonical?: string;
@@ -73,7 +75,7 @@ export interface Props {
 }
 
 const { props } = Astro;
-const { title, description, canonical, noindex, nofollow, charset } = props;
+const { title, titleTemplate, titleDefault, description, canonical, noindex, nofollow, charset } = props;
 
 function validateProps(props) {
   const { openGraph, description } = props;
@@ -107,9 +109,21 @@ function validateProps(props) {
 }
 
 validateProps(props);
+
+let updatedTitle = '';
+
+if (title) {
+  updatedTitle = title;
+  if (titleTemplate) {
+    updatedTitle = titleTemplate.replace(/%s/g, updatedTitle);
+  }
+} else if (titleDefault) {
+  updatedTitle = titleDefault;
+}
+
 ---
 
-{title ? <title set:html={title} /> : null}
+{updatedTitle ? <title set:html={updatedTitle} /> : null}
 
 {charset ? <meta charset={charset} /> : null}
 
