@@ -46,8 +46,8 @@ import { SEO } from "astro-seo";
         ],
       }}
     />
+    // ... rest of <head>
   </head>
-  // ... rest of <head>
     <body> // ... body </body>
   </head></html>
 ```
