@@ -9,6 +9,20 @@ The ultimate goal is to make this the one-stop shop for most of your SEO needs w
 
 Pull requests and/or feature requests are very welcome!
 
+## Installation
+
+To install Astro SEO, run the following command in your terminal:
+
+```bash
+npm install astro-seo
+```
+
+or if you use yarn:
+  
+```bash
+yarn add astro-seo
+```
+
 ## How To Use
 
 In any of your Astro pages, import Astro SEO and then use the component inside
