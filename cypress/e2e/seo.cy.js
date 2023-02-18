@@ -9,6 +9,10 @@ describe("Basic Tags", () => {
     cy.title().should("eq", "Francis York Morgan");
   });
 
+  it("default title field is ignored", () => {
+    cy.title().should("not.eq", "Tinker Tailor Soldier Spy");
+  });
+
   it("sets the description", () => {
     cy.get('head meta[name="description"]').should(
       "have.attr",
@@ -417,4 +421,24 @@ describe("Doesn't extend tags", () => {
       "head meta:not([charset], [name='viewport'], [name='description'], [name='robots'])"
     ).should("not.exist");
   });
+});
+
+describe("Default title", () => {
+  beforeEach(() => {
+    cy.visit("localhost:3000/titleDefault");
+  });
+
+  it("default title is used", () => {
+    cy.title().should("eq", "Default Tinker Tailor Soldier Spy");
+  })
+});
+
+describe("Title template", () => {
+  beforeEach(() => {
+    cy.visit("localhost:3000/titleTemplate");
+  });
+
+  it("title template is used", () => {
+    cy.title().should("eq", "Home | Tinker Tailor Soldier Spy");
+  })
 });
