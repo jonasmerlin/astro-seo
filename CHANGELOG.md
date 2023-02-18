@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.1](https://github.com/jonasmerlin/astro-seo/compare/v0.7.0...v0.7.1) (2023-02-18)
+
+
+### Features
+
+* Add titleDefault and titleTemplate ([548a6ea](https://github.com/jonasmerlin/astro-seo/commit/548a6eabc71217aaea06497207bca33cace358ce))
+* Export TwitterCard Type ([b8f7b39](https://github.com/jonasmerlin/astro-seo/commit/b8f7b3953946f38734983a8c4e9ac68ce046720d))
+
+
+### Bug Fixes
+
+* head atribute on example ([138a8f9](https://github.com/jonasmerlin/astro-seo/commit/138a8f9d24ec007ccf0dd9637455ca3c2162406e))
+* html tag on close example ([35f5f6c](https://github.com/jonasmerlin/astro-seo/commit/35f5f6ce81199013f3a56c8de8d12a0bdad5d027))
+
 ## [0.7.0](https://github.com/jonasmerlin/astro-seo/compare/v0.6.1...v0.7.0) (2023-01-16)
 
 
