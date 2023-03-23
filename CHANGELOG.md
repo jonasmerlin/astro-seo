@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.2](https://github.com/jonasmerlin/astro-seo/compare/v0.7.1...v0.7.2) (2023-03-23)
+
+
+### Features
+
+* add option to surpress warnings ([a2d2385](https://github.com/jonasmerlin/astro-seo/commit/a2d2385d3f0cb073844fb1ba3e42729ba16d44ae))
+
+
+### Bug Fixes
+
+* add tsconfig.json to fix TS error ([9433e11](https://github.com/jonasmerlin/astro-seo/commit/9433e1156e7e5750fe1ecb51becf3211b9e69d21))
+* example code in readme ([1b13ddc](https://github.com/jonasmerlin/astro-seo/commit/1b13ddcd79ebec63922f857e2bb27099b03d3cad))
+* fix TS errors ([fee197a](https://github.com/jonasmerlin/astro-seo/commit/fee197a3840d45acd2d1f85c82f6cf452287aa70))
+* typo in src/components/ExtendedTags.astro ([526f0b5](https://github.com/jonasmerlin/astro-seo/commit/526f0b5052d0147dc0942c231fa20b71e9c3aa8a))
+
 ### [0.7.1](https://github.com/jonasmerlin/astro-seo/compare/v0.7.0...v0.7.1) (2023-02-18)
 
 
