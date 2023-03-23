@@ -19,7 +19,7 @@ const { optional } = Astro.props.openGraph;
   ) : null
 }
 {
-  optional.localeAlternate?.map((locale) => (
+  optional.localeAlternate?.map((locale: string) => (
     <meta property="og:locale:alternate" content={locale} />
   ))
 }

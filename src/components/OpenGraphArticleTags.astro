@@ -20,10 +20,10 @@ const { publishedTime, modifiedTime, expirationTime, authors, section, tags } =
 }
 {
   authors
-    ? authors.map((author) => (
+    ? authors.map((author: string) => (
         <meta property="article:author" content={author} />
       ))
     : null
 }
 {section ? <meta property="article:section" content={section} /> : null}
-{tags ? tags.map((tag) => <meta property="article:tag" content={tag} />) : null}
+{tags ? tags.map((tag: string) => <meta property="article:tag" content={tag} />) : null}
