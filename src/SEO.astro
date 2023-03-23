@@ -6,7 +6,11 @@ import OpenGraphOptionalTags from "./components/OpenGraphOptionalTags.astro";
 import ExtendedTags from "./components/ExtendedTags.astro";
 import TwitterTags from "./components/TwitterTags.astro";
 
-export type TwitterCardType = "summary" | "summary_large_image" | "app" | "player";
+export type TwitterCardType =
+  | "summary"
+  | "summary_large_image"
+  | "app"
+  | "player";
 
 export interface Link extends HTMLLinkElement {
   prefetch: boolean;
@@ -75,7 +79,16 @@ export interface Props {
 }
 
 const { props } = Astro;
-const { title, titleTemplate, titleDefault, description, canonical, noindex, nofollow, charset } = props;
+const {
+  title,
+  titleTemplate,
+  titleDefault,
+  description,
+  canonical,
+  noindex,
+  nofollow,
+  charset,
+} = props;
 
 function validateProps(props) {
   const { openGraph, description } = props;
@@ -110,7 +123,7 @@ function validateProps(props) {
 
 validateProps(props);
 
-let updatedTitle = '';
+let updatedTitle = "";
 
 if (title) {
   updatedTitle = title;
@@ -120,7 +133,6 @@ if (title) {
 } else if (titleDefault) {
   updatedTitle = titleDefault;
 }
-
 ---
 
 {updatedTitle ? <title set:html={updatedTitle} /> : null}
