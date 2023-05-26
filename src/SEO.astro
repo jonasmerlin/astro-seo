@@ -26,6 +26,10 @@ export interface Props {
   canonical?: string;
   nofollow?: boolean;
   noindex?: boolean;
+  alternates?: {
+    href: string;
+    hreflang: string;
+  }[];
   openGraph?: {
     basic: {
       title: string;
