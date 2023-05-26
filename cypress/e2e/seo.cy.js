@@ -442,3 +442,25 @@ describe("Title template", () => {
     cy.title().should("eq", "Home | Tinker Tailor Soldier Spy");
   })
 });
+
+describe("alternate languages", () => {
+  beforeEach(() => {
+    cy.visit("localhost:3000/alternateLanguages");
+  });
+
+  it("sets alternate language link", () => {
+    cy.get('head link[rel="alternate"]').should(
+      "have.attr",
+      "href",
+      "https://example.com/fr"
+    );
+  });
+
+  it("sets alternate language link hreflang", () => {
+    cy.get('head link[rel="alternate"]').should(
+      "have.attr",
+      "hreflang",
+      "fr"
+    );
+  });
+});

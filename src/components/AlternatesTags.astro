@@ -4,6 +4,6 @@ const { list } = Astro.props.alternates;
 
 {
   list.map((alternate, _) => (
-    <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />
+    <link rel="alternate" hreflang={alternate.hrefLang} href={alternate.href} />
   ))
 }
