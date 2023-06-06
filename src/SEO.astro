@@ -7,11 +7,7 @@ import ExtendedTags from "./components/ExtendedTags.astro";
 import TwitterTags from "./components/TwitterTags.astro";
 import LanguageAlternatesTags from "./components/LanguageAlternatesTags.astro";
 
-export type TwitterCardType =
-  | "summary"
-  | "summary_large_image"
-  | "app"
-  | "player";
+export type TwitterCardType = "summary" | "summary_large_image" | "app" | "player";
 
 export interface Link extends HTMLLinkElement {
   prefetch: boolean;
