@@ -445,22 +445,19 @@ describe("Title template", () => {
 
 describe("alternate languages", () => {
   beforeEach(() => {
-    cy.visit("localhost:3000/alternateLanguages");
+    cy.visit("localhost:3000/languageAlternates");
   });
 
-  it("sets alternate language link", () => {
-    cy.get('head link[rel="alternate"]').should(
-      "have.attr",
-      "href",
-      "https://example.com/fr"
-    );
-  });
+  it('checks for two alternate links with href en and fr', function() {
+    // Check for two link tags with rel=alternate
+    cy.get('link[rel=alternate]').should('have.length', 2)
 
-  it("sets alternate language link hreflang", () => {
-    cy.get('head link[rel="alternate"]').should(
-      "have.attr",
-      "hreflang",
-      "fr"
-    );
-  });
+    // Check for a link tag with href=en
+    cy.get('link[rel=alternate][hreflang="en"]').should('exist')
+    cy.get('link[rel=alternate][href="localhost:3000/languageAlternates/en"]').should('exist')
+
+    // Check for a link tag with href=fr
+    cy.get('link[rel=alternate][hreflang="fr"]').should('exist')
+    cy.get('link[rel=alternate][href="localhost:3000/languageAlternates/fr"]').should('exist')
+  })
 });
