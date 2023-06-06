@@ -26,4 +26,8 @@ const { publishedTime, modifiedTime, expirationTime, authors, section, tags } =
     : null
 }
 {section ? <meta property="article:section" content={section} /> : null}
-{tags ? tags.map((tag: string) => <meta property="article:tag" content={tag} />) : null}
+{
+  tags
+    ? tags.map((tag: string) => <meta property="article:tag" content={tag} />)
+    : null
+}

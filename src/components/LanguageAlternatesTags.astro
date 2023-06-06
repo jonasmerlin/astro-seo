@@ -1,0 +1,9 @@
+---
+const { languageAlternates } = Astro.props;
+---
+
+{
+  languageAlternates.map((alternate) => (
+    <link rel="alternate" hreflang={alternate.hrefLang} href={alternate.href} />
+  ))
+}

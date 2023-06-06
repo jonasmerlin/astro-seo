@@ -5,6 +5,7 @@ import OpenGraphImageTags from "./components/OpenGraphImageTags.astro";
 import OpenGraphOptionalTags from "./components/OpenGraphOptionalTags.astro";
 import ExtendedTags from "./components/ExtendedTags.astro";
 import TwitterTags from "./components/TwitterTags.astro";
+import LanguageAlternatesTags from "./components/LanguageAlternatesTags.astro";
 
 export type TwitterCardType = "summary" | "summary_large_image" | "app" | "player";
 
@@ -26,6 +27,10 @@ export interface Props {
   canonical?: string;
   nofollow?: boolean;
   noindex?: boolean;
+  languageAlternates?: {
+    href: string;
+    hrefLang: string;
+  }[];
   openGraph?: {
     basic: {
       title: string;
@@ -149,3 +154,4 @@ if (Astro.props.title) {
 {Astro.props.openGraph?.article && <OpenGraphArticleTags {...Astro.props} />}
 {Astro.props.twitter && <TwitterTags {...Astro.props} />}
 {Astro.props.extend && <ExtendedTags {...Astro.props} />}
+{Astro.props.languageAlternates && <LanguageAlternatesTags {...Astro.props} />}
