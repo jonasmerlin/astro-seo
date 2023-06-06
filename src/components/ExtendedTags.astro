@@ -6,11 +6,7 @@ const { props } = Astro;
 type Link = HTMLAttributes<"link">;
 ---
 
-{
-  props.extend.link?.map((attributes: Link) => (
-    <link {...attributes} />
-  ))
-}
+{props.extend.link?.map((attributes: Link) => <link {...attributes} />)}
 {
   props.extend.meta?.map(({ content, httpEquiv, name, property }) => (
     <meta
