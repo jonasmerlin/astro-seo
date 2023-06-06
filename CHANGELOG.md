@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.3](https://github.com/jonasmerlin/astro-seo/compare/v0.7.2...v0.7.3) (2023-06-06)
+
+
+### Bug Fixes
+
+* issues with pr ([efea507](https://github.com/jonasmerlin/astro-seo/commit/efea507b30958766ee9a7e373e7b84bbe706467e))
+
 ### [0.7.2](https://github.com/jonasmerlin/astro-seo/compare/v0.7.1...v0.7.2) (2023-03-23)
 
 
