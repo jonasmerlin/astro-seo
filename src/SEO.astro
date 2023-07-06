@@ -24,11 +24,11 @@ export interface Props {
   titleDefault?: string;
   charset?: string;
   description?: string;
-  canonical?: string;
+  canonical?: URL | string;
   nofollow?: boolean;
   noindex?: boolean;
   languageAlternates?: {
-    href: string;
+    href: URL | string;
     hrefLang: string;
   }[];
   openGraph?: {
@@ -36,7 +36,7 @@ export interface Props {
       title: string;
       type: string;
       image: string;
-      url?: string;
+      url?: URL | string;
     };
     optional?: {
       audio?: string;
@@ -48,8 +48,8 @@ export interface Props {
       video?: string;
     };
     image?: {
-      url?: string;
-      secureUrl?: string;
+      url?: URL | string;
+      secureUrl?: URL | string;
       type?: string;
       width?: number;
       height?: number;
@@ -70,7 +70,7 @@ export interface Props {
     creator?: string;
     title?: string;
     description?: string;
-    image?: string;
+    image?: URL | string;
     imageAlt?: string;
   };
   extend?: {
