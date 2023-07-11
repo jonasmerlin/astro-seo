@@ -374,6 +374,8 @@ describe("Extended link tags", () => {
   it("sets favicon", () => {
     cy.visit("localhost:3000/extendedLinkTags");
     cy.get('head link[rel="icon"]').should("have.attr", "href", "/favicon.ico");
+    cy.get('head link[rel="icon"]').should("have.attr", "rel", "icon");
+    cy.get('head link[rel="icon"]').should("have.attr", "type", "image/svg+xml");
   });
 });
 
