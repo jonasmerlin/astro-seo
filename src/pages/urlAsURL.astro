@@ -1,0 +1,18 @@
+---
+import SEO from "../SEO.astro";
+
+let url =  new URL("https://github.com/jonasmerlin/astro-seo");
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <SEO
+      title="Francis York Morgan"
+      description="Agent"
+      canonical={url}
+    />
+  </head>
+  <body>Test</body>
+</html>

@@ -461,3 +461,13 @@ describe("alternate languages", () => {
     cy.get('link[rel=alternate][href="localhost:3000/languageAlternates/fr"]').should('exist')
   })
 });
+
+describe("url as URL object", () => {
+  beforeEach(() => {
+    cy.visit("localhost:3000/urlAsURL");
+  });
+
+  it('checks if canonical is set correctly', function() {
+    cy.get('head link[rel="canonical"]').should("have.attr", "href", "https://github.com/jonasmerlin/astro-seo");
+  })
+});
