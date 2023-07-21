@@ -86,9 +86,9 @@ function validateProps(props: Props) {
   if (props.openGraph) {
     if (
       !props.openGraph.basic ||
-      props.openGraph.basic.title == null ||
-      props.openGraph.basic.type == null ||
-      props.openGraph.basic.image == null
+      (props.openGraph.basic.title ?? undefined) == undefined ||
+      (props.openGraph.basic.type ?? undefined) == undefined ||
+      (props.openGraph.basic.image ?? undefined) == undefined
     ) {
       throw new Error(
         "If you pass the openGraph prop, you have to at least define the title, type, and image basic properties!"
