@@ -37,7 +37,7 @@ describe("Basic Tags", () => {
     cy.get('head meta[property="og:title"]').should(
       "have.attr",
       "content",
-      "Tinker Tailor Soldier Spy"
+      "Tinker Tailor Soldier & Spy"
     );
     cy.get('head meta[property="og:type"]').should(
       "have.attr",
@@ -189,7 +189,7 @@ describe("Open Graph image tags", () => {
     cy.get('head meta[property="og:image:height"]').should(
       "have.attr",
       "content",
-      "0"
+      "1"
     );
   });
 
