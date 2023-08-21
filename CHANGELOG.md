@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.6](https://github.com/jonasmerlin/astro-seo/compare/v0.7.5...v0.7.6) (2023-08-21)
+
+
+### Bug Fixes
+
+* improper use of null when interface asks for undefined ([93df7c8](https://github.com/jonasmerlin/astro-seo/commit/93df7c84029c96aac163a4b88c098f81345c3980))
+* improper use of null when interface asks for undefined ([0447eb3](https://github.com/jonasmerlin/astro-seo/commit/0447eb36894476085a22f01d291959bdcc4896b6))
+
 ### [0.7.5](https://github.com/jonasmerlin/astro-seo/compare/v0.7.4...v0.7.5) (2023-07-11)
 
 ### [0.7.4](https://github.com/jonasmerlin/astro-seo/compare/v0.7.2...v0.7.4) (2023-06-06)
