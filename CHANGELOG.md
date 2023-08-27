@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.8.0](https://github.com/jonasmerlin/astro-seo/compare/v0.7.6...v0.8.0) (2023-08-27)
+
+
+### Features
+
+* add support for media attribute on extended meta tags ([8f8d2c7](https://github.com/jonasmerlin/astro-seo/commit/8f8d2c7a279bf9598f3cab8753e265a9a8184e31))
+
 ### [0.7.6](https://github.com/jonasmerlin/astro-seo/compare/v0.7.5...v0.7.6) (2023-08-21)
 
 
