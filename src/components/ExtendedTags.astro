@@ -8,10 +8,11 @@ type Link = HTMLAttributes<"link">;
 
 {props.extend.link?.map((attributes: Link) => <link {...attributes} />)}
 {
-  props.extend.meta?.map(({ content, httpEquiv, name, property }) => (
+  props.extend.meta?.map(({ content, httpEquiv, media, name, property }) => (
     <meta
       content={content}
       http-equiv={httpEquiv}
+      media={media}
       name={name}
       property={property}
     />
