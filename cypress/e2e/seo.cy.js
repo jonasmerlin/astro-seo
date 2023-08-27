@@ -368,6 +368,14 @@ describe("Extended tags", () => {
       "Agent"
     );
   });
+
+  it("sets the media attribute when included", () => {
+    cy.get('head meta[name="theme-color"]').should(
+      "have.attr",
+      "media",
+      "(prefers-color-scheme: dark)"
+    );
+  });
 });
 
 describe("Extended link tags", () => {
