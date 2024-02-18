@@ -1,6 +1,7 @@
 {
     "extends": "astro/tsconfigs/base",
     "compilerOptions": {
-      "importsNotUsedAsValues": "error",
+      "verbatimModuleSyntax": false,
+      "moduleResolution": "node"
     }
   }

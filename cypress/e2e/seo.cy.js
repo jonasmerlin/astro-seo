@@ -2,7 +2,7 @@
 
 describe("Basic Tags", () => {
   beforeEach(() => {
-    cy.visit("localhost:3000");
+    cy.visit("localhost:4321");
   });
 
   it("sets the title", () => {
@@ -97,7 +97,7 @@ describe("Basic Tags", () => {
 
 describe("Basic Tags Without URL", () => {
   beforeEach(() => {
-    cy.visit("localhost:3000/ogBasicTagsWithoutUrl");
+    cy.visit("localhost:4321/ogBasicTagsWithoutUrl");
   });
 
   it("sets the Title, Type, and Image basic Open Graph properties", () => {
@@ -122,14 +122,14 @@ describe("Basic Tags Without URL", () => {
     cy.get('head meta[property="og:url"]').should(
       "have.attr",
       "content",
-      "http://localhost:3000/ogBasicTagsWithoutUrl"
+      "http://localhost:4321/ogBasicTagsWithoutUrl"
     );
   });
 });
 
 describe("index & follow combinations", () => {
   it("applies correct defaults", () => {
-    cy.visit("localhost:3000");
+    cy.visit("localhost:4321");
     cy.get('head meta[name="robots"]').should(
       "have.attr",
       "content",
@@ -138,7 +138,7 @@ describe("index & follow combinations", () => {
   });
 
   it("sets noindex correctly", () => {
-    cy.visit("localhost:3000/noindex");
+    cy.visit("localhost:4321/noindex");
     cy.get('head meta[name="robots"]').should(
       "have.attr",
       "content",
@@ -147,7 +147,7 @@ describe("index & follow combinations", () => {
   });
 
   it("sets both noindex & nofollow correctly", () => {
-    cy.visit("localhost:3000/noindexAndNofollow");
+    cy.visit("localhost:4321/noindexAndNofollow");
     cy.get('head meta[name="robots"]').should(
       "have.attr",
       "content",
@@ -158,7 +158,7 @@ describe("index & follow combinations", () => {
 
 describe("Open Graph image tags", () => {
   it("sets secure_url property", () => {
-    cy.visit("localhost:3000/ogImageTags");
+    cy.visit("localhost:4321/ogImageTags");
     cy.get('head meta[property="og:image:secure_url"]').should(
       "have.attr",
       "content",
@@ -167,7 +167,7 @@ describe("Open Graph image tags", () => {
   });
 
   it("sets mime type property", () => {
-    cy.visit("localhost:3000/ogImageTags");
+    cy.visit("localhost:4321/ogImageTags");
     cy.get('head meta[property="og:image:type"]').should(
       "have.attr",
       "content",
@@ -176,7 +176,7 @@ describe("Open Graph image tags", () => {
   });
 
   it("sets mime width property", () => {
-    cy.visit("localhost:3000/ogImageTags");
+    cy.visit("localhost:4321/ogImageTags");
     cy.get('head meta[property="og:image:width"]').should(
       "have.attr",
       "content",
@@ -185,7 +185,7 @@ describe("Open Graph image tags", () => {
   });
 
   it("sets mime height property (when it's 0)", () => {
-    cy.visit("localhost:3000/ogImageTags");
+    cy.visit("localhost:4321/ogImageTags");
     cy.get('head meta[property="og:image:height"]').should(
       "have.attr",
       "content",
@@ -194,7 +194,7 @@ describe("Open Graph image tags", () => {
   });
 
   it("sets alt property", () => {
-    cy.visit("localhost:3000/ogImageTags");
+    cy.visit("localhost:4321/ogImageTags");
     cy.get('head meta[property="og:image:alt"]').should(
       "have.attr",
       "content",
@@ -205,7 +205,7 @@ describe("Open Graph image tags", () => {
 
 describe("Open Graph article tags", () => {
   it("sets published_time property", () => {
-    cy.visit("localhost:3000/ogArticleTags");
+    cy.visit("localhost:4321/ogArticleTags");
     cy.get('head meta[property="article:published_time"]').should(
       "have.attr",
       "content",
@@ -214,7 +214,7 @@ describe("Open Graph article tags", () => {
   });
 
   it("sets modified_time property", () => {
-    cy.visit("localhost:3000/ogArticleTags");
+    cy.visit("localhost:4321/ogArticleTags");
     cy.get('head meta[property="article:modified_time"]').should(
       "have.attr",
       "content",
@@ -223,7 +223,7 @@ describe("Open Graph article tags", () => {
   });
 
   it("sets expiration_time property", () => {
-    cy.visit("localhost:3000/ogArticleTags");
+    cy.visit("localhost:4321/ogArticleTags");
     cy.get('head meta[property="article:expiration_time"]').should(
       "have.attr",
       "content",
@@ -232,7 +232,7 @@ describe("Open Graph article tags", () => {
   });
 
   it("sets authors properties", () => {
-    cy.visit("localhost:3000/ogArticleTags");
+    cy.visit("localhost:4321/ogArticleTags");
     cy.get('head meta[property="article:author"]')
       .should("have.length", 2)
       .then((tags) => {
@@ -242,7 +242,7 @@ describe("Open Graph article tags", () => {
   });
 
   it("sets section property", () => {
-    cy.visit("localhost:3000/ogArticleTags");
+    cy.visit("localhost:4321/ogArticleTags");
     cy.get('head meta[property="article:section"]').should(
       "have.attr",
       "content",
@@ -251,7 +251,7 @@ describe("Open Graph article tags", () => {
   });
 
   it("sets tags properties", () => {
-    cy.visit("localhost:3000/ogArticleTags");
+    cy.visit("localhost:4321/ogArticleTags");
     cy.get('head meta[property="article:tag"]')
       .should("have.length", 2)
       .then((tags) => {
@@ -261,19 +261,19 @@ describe("Open Graph article tags", () => {
   });
 
   it("doesn't set empty author array", () => {
-    cy.visit("localhost:3000/ogArticleTagsEmtpyArray");
+    cy.visit("localhost:4321/ogArticleTagsEmtpyArray");
     cy.get('head meta[property="article:author"]').should("have.length", 0);
   });
 
   it("doesn't set empty tag array", () => {
-    cy.visit("localhost:3000/ogArticleTagsEmtpyArray");
+    cy.visit("localhost:4321/ogArticleTagsEmtpyArray");
     cy.get('head meta[property="article:tag"]').should("have.length", 0);
   });
 });
 
 describe("Twitter tags", () => {
   it("sets twitter:card tag", () => {
-    cy.visit("localhost:3000/twitterTags");
+    cy.visit("localhost:4321/twitterTags");
     cy.get('head meta[name="twitter:card"]').should(
       "have.attr",
       "content",
@@ -282,7 +282,7 @@ describe("Twitter tags", () => {
   });
 
   it("sets twitter:site tag", () => {
-    cy.visit("localhost:3000/twitterTags");
+    cy.visit("localhost:4321/twitterTags");
     cy.get('head meta[name="twitter:site"]').should(
       "have.attr",
       "content",
@@ -291,7 +291,7 @@ describe("Twitter tags", () => {
   });
 
   it("sets twitter:creator tag", () => {
-    cy.visit("localhost:3000/twitterTags");
+    cy.visit("localhost:4321/twitterTags");
     cy.get('head meta[name="twitter:creator"]').should(
       "have.attr",
       "content",
@@ -300,7 +300,7 @@ describe("Twitter tags", () => {
   });
 
   it("sets twitter:title tag", () => {
-    cy.visit("localhost:3000/twitterTags");
+    cy.visit("localhost:4321/twitterTags");
     cy.get('head meta[name="twitter:title"]').should(
       "have.attr",
       "content",
@@ -309,7 +309,7 @@ describe("Twitter tags", () => {
   });
 
   it("sets twitter:description tag", () => {
-    cy.visit("localhost:3000/twitterTags");
+    cy.visit("localhost:4321/twitterTags");
     cy.get('head meta[name="twitter:description"]').should(
       "have.attr",
       "content",
@@ -318,7 +318,7 @@ describe("Twitter tags", () => {
   });
 
   it("sets twitter:image tag", () => {
-    cy.visit("localhost:3000/twitterTags");
+    cy.visit("localhost:4321/twitterTags");
     cy.get('head meta[name="twitter:image"]').should(
       "have.attr",
       "content",
@@ -327,7 +327,7 @@ describe("Twitter tags", () => {
   });
 
   it("sets twitter:image:alt tag", () => {
-    cy.visit("localhost:3000/twitterTags");
+    cy.visit("localhost:4321/twitterTags");
     cy.get('head meta[name="twitter:image:alt"]').should(
       "have.attr",
       "content",
@@ -338,7 +338,7 @@ describe("Twitter tags", () => {
 
 describe("Extended tags", () => {
   beforeEach(() => {
-    cy.visit("localhost:3000/extendedTags");
+    cy.visit("localhost:4321/extendedTags");
   });
 
   it("sets favicon", () => {
@@ -380,7 +380,7 @@ describe("Extended tags", () => {
 
 describe("Extended link tags", () => {
   it("sets favicon", () => {
-    cy.visit("localhost:3000/extendedLinkTags");
+    cy.visit("localhost:4321/extendedLinkTags");
     cy.get('head link[rel="icon"]').should("have.attr", "href", "/favicon.ico");
     cy.get('head link[rel="icon"]').should("have.attr", "rel", "icon");
     cy.get('head link[rel="icon"]').should("have.attr", "type", "image/svg+xml");
@@ -389,7 +389,7 @@ describe("Extended link tags", () => {
 
 describe("Extended meta tags", () => {
   beforeEach(() => {
-    cy.visit("localhost:3000/extendedMetaTags");
+    cy.visit("localhost:4321/extendedMetaTags");
   });
 
   it("sets twitter:image tag", () => {
@@ -419,7 +419,7 @@ describe("Extended meta tags", () => {
 
 describe("Doesn't extend tags", () => {
   beforeEach(() => {
-    cy.visit("localhost:3000/extendedTagsEmptyArray");
+    cy.visit("localhost:4321/extendedTagsEmptyArray");
   });
 
   it("doesn't extend link tags", () => {
@@ -435,7 +435,7 @@ describe("Doesn't extend tags", () => {
 
 describe("Default title", () => {
   beforeEach(() => {
-    cy.visit("localhost:3000/titleDefault");
+    cy.visit("localhost:4321/titleDefault");
   });
 
   it("default title is used", () => {
@@ -445,7 +445,7 @@ describe("Default title", () => {
 
 describe("Title template", () => {
   beforeEach(() => {
-    cy.visit("localhost:3000/titleTemplate");
+    cy.visit("localhost:4321/titleTemplate");
   });
 
   it("title template is used", () => {
@@ -455,7 +455,7 @@ describe("Title template", () => {
 
 describe("alternate languages", () => {
   beforeEach(() => {
-    cy.visit("localhost:3000/languageAlternates");
+    cy.visit("localhost:4321/languageAlternates");
   });
 
   it('checks for two alternate links with href en and fr', function() {
@@ -464,17 +464,17 @@ describe("alternate languages", () => {
 
     // Check for a link tag with href=en
     cy.get('link[rel=alternate][hreflang="en"]').should('exist')
-    cy.get('link[rel=alternate][href="localhost:3000/languageAlternates/en"]').should('exist')
+    cy.get('link[rel=alternate][href="localhost:4321/languageAlternates/en"]').should('exist')
 
     // Check for a link tag with href=fr
     cy.get('link[rel=alternate][hreflang="fr"]').should('exist')
-    cy.get('link[rel=alternate][href="localhost:3000/languageAlternates/fr"]').should('exist')
+    cy.get('link[rel=alternate][href="localhost:4321/languageAlternates/fr"]').should('exist')
   })
 });
 
 describe("url as URL object", () => {
   beforeEach(() => {
-    cy.visit("localhost:3000/urlAsURL");
+    cy.visit("localhost:4321/urlAsURL");
   });
 
   it('checks if canonical is set correctly', function() {
