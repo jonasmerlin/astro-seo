@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.8.1](https://github.com/jonasmerlin/astro-seo/compare/v0.8.0...v0.8.1) (2024-02-18)
+
+
+### Bug Fixes
+
+* **#84:** order of properties ([da25a50](https://github.com/jonasmerlin/astro-seo/commit/da25a509f0f5150f24cfa6ce1f9e654e5fb237d9)), closes [#84](https://github.com/jonasmerlin/astro-seo/issues/84)
+* type issue ([3414cb8](https://github.com/jonasmerlin/astro-seo/commit/3414cb86510930a5b18b2188200a155177af03ef))
+
 ## [0.8.0](https://github.com/jonasmerlin/astro-seo/compare/v0.7.6...v0.8.0) (2023-08-27)
 
 
