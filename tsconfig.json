@@ -2,6 +2,7 @@
     "extends": "astro/tsconfigs/base",
     "compilerOptions": {
       "verbatimModuleSyntax": false,
-      "moduleResolution": "node"
+      "moduleResolution": "node",
+      "jsx": "react"
     }
   }

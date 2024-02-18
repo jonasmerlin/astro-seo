@@ -1,5 +1,5 @@
-// @ts-expect-error
+// @ts-ignore
 export { default as SEO } from "./SEO.astro";
 
-// @ts-expect-error
+// @ts-ignore
 export * from "./SEO.astro";
