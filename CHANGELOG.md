@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.8.2](https://github.com/jonasmerlin/astro-seo/compare/v0.8.1...v0.8.2) (2024-02-19)
 
+### Bug Fixes
+
+* Add sizes attribute to Link type
+
 ### [0.8.1](https://github.com/jonasmerlin/astro-seo/compare/v0.8.0...v0.8.1) (2024-02-18)
 
 
