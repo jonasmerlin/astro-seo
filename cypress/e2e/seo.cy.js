@@ -122,7 +122,7 @@ describe("Basic Tags Without URL", () => {
     cy.get('head meta[property="og:url"]').should(
       "have.attr",
       "content",
-      "http://localhost:4321/ogBasicTagsWithoutUrl"
+      "http://localhost:4321/ogBasicTagsWithoutUrl/"
     );
   });
 });
