@@ -122,7 +122,7 @@ describe("Basic Tags Without URL", () => {
     cy.get('head meta[property="og:url"]').should(
       "have.attr",
       "content",
-      "http://localhost:4321/ogBasicTagsWithoutUrl/"
+      "http://localhost:4321/ogBasicTagsWithoutUrl"
     );
   });
 });
@@ -384,6 +384,7 @@ describe("Extended link tags", () => {
     cy.get('head link[rel="icon"]').should("have.attr", "href", "/favicon.ico");
     cy.get('head link[rel="icon"]').should("have.attr", "rel", "icon");
     cy.get('head link[rel="icon"]').should("have.attr", "type", "image/svg+xml");
+    cy.get('head link[rel="icon"]').should("have.attr", "sizes", "60x60");
   });
 });
 
