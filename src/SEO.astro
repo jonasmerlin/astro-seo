@@ -128,13 +128,16 @@ if (Astro.props.title) {
 } else if (Astro.props.titleDefault) {
   updatedTitle = Astro.props.titleDefault;
 }
+
+const baseUrl = Astro.site ?? Astro.url;
+const defaultCanonicalUrl = new URL(Astro.url.pathname + Astro.url.search, baseUrl);
 ---
 
 {updatedTitle ? <title set:html={updatedTitle} /> : null}
 
 {Astro.props.charset ? <meta charset={Astro.props.charset} /> : null}
 
-<link rel="canonical" href={Astro.props.canonical || Astro.url.href} />
+<link rel="canonical" href={Astro.props.canonical || defaultCanonicalUrl.href} />
 
 {
   Astro.props.description ? (
