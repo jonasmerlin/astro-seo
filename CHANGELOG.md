@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.8.4](https://github.com/jonasmerlin/astro-seo/compare/v0.8.3...v0.8.4) (2024-06-01)
+
+
+### Bug Fixes
+
+* unsuccessful check in CI due to formatting ([89fc0cf](https://github.com/jonasmerlin/astro-seo/commit/89fc0cf9165a25980bb3f9423c7b8829ad084083))
+* use Astro.site property to generate canonical urls ([3fc0612](https://github.com/jonasmerlin/astro-seo/commit/3fc06124cc06c0e329a875ed3d101da69d657e70))
+
 ### [0.8.3](https://github.com/jonasmerlin/astro-seo/compare/v0.8.2...v0.8.3) (2024-03-03)
 
 ### [0.8.2](https://github.com/jonasmerlin/astro-seo/compare/v0.8.1...v0.8.2) (2024-02-19)
