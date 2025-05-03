@@ -55,7 +55,7 @@ export interface Props {
     creator?: UseSeoMetaInput["twitterCreator"];
     title?: UseSeoMetaInput["twitterTitle"];
     description?: UseSeoMetaInput["twitterDescription"];
-    image?: UseSeoMetaInput["twitterImage"];
+    image?: URL | UseSeoMetaInput["twitterImage"];
     imageAlt?: UseSeoMetaInput["twitterImageAlt"];
   };
   extend?: {
@@ -159,7 +159,7 @@ useSeoMeta(head, {
   twitterCreator: Astro.props.twitter?.creator,
   twitterTitle: Astro.props.twitter?.title,
   twitterDescription: Astro.props.twitter?.description,
-  twitterImage: Astro.props.twitter?.image,
+  twitterImage: Astro.props.twitter?.image?.toString() || undefined,
   twitterImageAlt: Astro.props.twitter?.imageAlt,
 });
 
