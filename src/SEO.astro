@@ -1,30 +1,14 @@
 ---
-import OpenGraphArticleTags from "./components/OpenGraphArticleTags.astro";
-import OpenGraphBasicTags from "./components/OpenGraphBasicTags.astro";
-import OpenGraphImageTags from "./components/OpenGraphImageTags.astro";
-import OpenGraphOptionalTags from "./components/OpenGraphOptionalTags.astro";
-import ExtendedTags from "./components/ExtendedTags.astro";
-import TwitterTags from "./components/TwitterTags.astro";
-import LanguageAlternatesTags from "./components/LanguageAlternatesTags.astro";
-
-export type TwitterCardType = "summary" | "summary_large_image" | "app" | "player";
-
-export interface Link extends Omit<HTMLLinkElement, 'sizes'> {
-  prefetch: boolean;
-  crossorigin: string;
-  sizes: string;
-}
-
-export interface Meta extends HTMLMetaElement {
-  property: string;
-}
+import { createHead, renderSSRHead } from "unhead/server";
+import { useHead, useSeoMeta } from "unhead";
+import type { UseSeoMetaInput, HeadSafe } from "unhead/types";
 
 export interface Props {
   title?: string;
   titleTemplate?: string;
   titleDefault?: string;
-  charset?: string;
-  description?: string;
+  charset?: UseSeoMetaInput["charset"];
+  description?: UseSeoMetaInput["description"];
   canonical?: URL | string;
   nofollow?: boolean;
   noindex?: boolean;
@@ -34,49 +18,49 @@ export interface Props {
   }[];
   openGraph?: {
     basic: {
-      title: string;
-      type: string;
-      image: string;
-      url?: URL | string;
+      title?: UseSeoMetaInput["ogTitle"];
+      type?: UseSeoMetaInput["ogType"];
+      image?: UseSeoMetaInput["ogImage"];
+      url?: URL | UseSeoMetaInput["ogUrl"];
     };
     optional?: {
-      audio?: string;
-      description?: string;
-      determiner?: string;
-      locale?: string;
-      localeAlternate?: string[];
-      siteName?: string;
-      video?: string;
+      audio?: UseSeoMetaInput["ogAudio"];
+      description?: UseSeoMetaInput["ogDescription"];
+      determiner?: UseSeoMetaInput["ogDeterminer"];
+      locale?: UseSeoMetaInput["ogLocale"];
+      localeAlternate?: UseSeoMetaInput["ogLocaleAlternate"];
+      siteName?: UseSeoMetaInput["ogSiteName"];
+      video?: UseSeoMetaInput["ogVideo"];
     };
     image?: {
-      url?: URL | string;
-      secureUrl?: URL | string;
-      type?: string;
-      width?: number;
-      height?: number;
-      alt?: string;
+      url?: URL | UseSeoMetaInput["ogImageUrl"];
+      secureUrl?: URL | UseSeoMetaInput["ogImageSecureUrl"];
+      type?: UseSeoMetaInput["ogImageType"];
+      width?: UseSeoMetaInput["ogImageWidth"];
+      height?: UseSeoMetaInput["ogImageHeight"];
+      alt?: UseSeoMetaInput["ogImageAlt"];
     };
     article?: {
-      publishedTime?: string;
-      modifiedTime?: string;
-      expirationTime?: string;
-      authors?: string[];
-      section?: string;
-      tags?: string[];
+      publishedTime?: UseSeoMetaInput["articlePublishedTime"];
+      modifiedTime?: UseSeoMetaInput["articleModifiedTime"];
+      expirationTime?: UseSeoMetaInput["articleExpirationTime"];
+      authors?: UseSeoMetaInput["author"][];
+      section?: UseSeoMetaInput["articleSection"];
+      tags?: UseSeoMetaInput["articleTag"];
     };
   };
   twitter?: {
-    card?: TwitterCardType;
-    site?: string;
-    creator?: string;
-    title?: string;
-    description?: string;
-    image?: URL | string;
-    imageAlt?: string;
+    card?: UseSeoMetaInput["twitterCard"];
+    site?: UseSeoMetaInput["twitterSite"];
+    creator?: UseSeoMetaInput["twitterCreator"];
+    title?: UseSeoMetaInput["twitterTitle"];
+    description?: UseSeoMetaInput["twitterDescription"];
+    image?: UseSeoMetaInput["twitterImage"];
+    imageAlt?: UseSeoMetaInput["twitterImageAlt"];
   };
   extend?: {
-    link?: Partial<Link>[];
-    meta?: Partial<Meta>[];
+    link?: HeadSafe["link"];
+    meta?: HeadSafe["meta"];
   };
   surpressWarnings?: boolean;
 }
@@ -92,7 +76,7 @@ function validateProps(props: Props) {
       (props.openGraph.basic.image ?? undefined) == undefined
     ) {
       throw new Error(
-        "If you pass the openGraph prop, you have to at least define the title, type, and image basic properties!"
+        "If you pass the openGraph prop, you have to at least define the title, type, and image basic properties!",
       );
     }
   }
@@ -100,7 +84,7 @@ function validateProps(props: Props) {
   if (props.title && props.openGraph?.basic.title) {
     if (props.title == props.openGraph.basic.title && !props.surpressWarnings) {
       console.warn(
-        "WARNING(astro-seo): You passed the same value to `title` and `openGraph.optional.title`. This is most likely not what you want. See docs for more."
+        "WARNING(astro-seo): You passed the same value to `title` and `openGraph.optional.title`. This is most likely not what you want. See docs for more.",
       );
     }
   }
@@ -111,51 +95,100 @@ function validateProps(props: Props) {
     !props.surpressWarnings
   ) {
     console.warn(
-      "WARNING(astro-seo): You defined `openGraph.basic.image`, but didn't define `openGraph.image.alt`. This is strongly discouraged.'"
+      "WARNING(astro-seo): You defined `openGraph.basic.image`, but didn't define `openGraph.image.alt`. This is strongly discouraged.'",
     );
   }
 }
 
 validateProps(Astro.props);
 
-let updatedTitle = "";
-
-if (Astro.props.title) {
-  updatedTitle = Astro.props.title;
-  if (Astro.props.titleTemplate) {
-    updatedTitle = Astro.props.titleTemplate.replace(/%s/g, updatedTitle);
-  }
-} else if (Astro.props.titleDefault) {
-  updatedTitle = Astro.props.titleDefault;
-}
+const updatedTitle = Astro.props?.title || Astro.props?.titleDefault || "";
 
 const baseUrl = Astro.site ?? Astro.url;
-const defaultCanonicalUrl = new URL(Astro.url.pathname + Astro.url.search, baseUrl);
+const defaultCanonicalUrl = new URL(
+  Astro.url.pathname + Astro.url.search,
+  baseUrl,
+);
+
+const head = createHead();
+
+useSeoMeta(head, {
+  title: updatedTitle,
+  titleTemplate: Astro.props.titleTemplate,
+  charset: Astro.props.charset,
+  description: Astro.props.description,
+  //
+  ogTitle: Astro.props.openGraph?.basic.title,
+  ogType: Astro.props.openGraph?.basic.type,
+  ogImage: Astro.props.openGraph?.basic.image,
+  ogUrl: Astro.props.openGraph
+    ? Astro.props.openGraph?.basic.url?.toString() || Astro.url.href
+    : undefined,
+  //
+  ogAudio: Astro.props.openGraph?.optional?.audio,
+  ogDescription: Astro.props.openGraph?.optional?.description,
+  ogDeterminer: Astro.props.openGraph?.optional?.determiner,
+  ogLocale: Astro.props.openGraph?.optional?.locale,
+  ogLocaleAlternate: Astro.props.openGraph?.optional?.localeAlternate,
+  ogSiteName: Astro.props.openGraph?.optional?.siteName,
+  ogVideo: Astro.props.openGraph?.optional?.video,
+  //
+  ogImageUrl: Astro.props.openGraph?.image?.url?.toString() || undefined,
+  ogImageSecureUrl:
+    Astro.props.openGraph?.image?.secureUrl?.toString() || undefined,
+  ogImageType: Astro.props.openGraph?.image?.type,
+  ogImageWidth: Astro.props.openGraph?.image?.width,
+  ogImageHeight: Astro.props.openGraph?.image?.height,
+  ogImageAlt: Astro.props.openGraph?.image?.alt,
+  //
+  articleAuthor:
+    Astro.props.openGraph?.article?.authors.length > 0
+      ? Astro.props.openGraph?.article?.authors.map((author) => author)
+      : undefined,
+  articlePublishedTime: Astro.props.openGraph?.article?.publishedTime,
+  articleModifiedTime: Astro.props.openGraph?.article?.modifiedTime,
+  articleExpirationTime: Astro.props.openGraph?.article?.expirationTime,
+  articleSection: Astro.props.openGraph?.article?.section,
+  articleTag:
+    Astro.props.openGraph?.article?.tags.length > 0
+      ? Astro.props.openGraph?.article?.tags.map((tag) => tag)
+      : undefined,
+  //
+  twitterCard: Astro.props.twitter?.card,
+  twitterSite: Astro.props.twitter?.site,
+  twitterCreator: Astro.props.twitter?.creator,
+  twitterTitle: Astro.props.twitter?.title,
+  twitterDescription: Astro.props.twitter?.description,
+  twitterImage: Astro.props.twitter?.image,
+  twitterImageAlt: Astro.props.twitter?.imageAlt,
+});
+
+useHead(head, {
+  link: [
+    {
+      rel: "canonical",
+      href: Astro.props.canonical?.toString() || defaultCanonicalUrl.href,
+    },
+    ...(Astro.props.languageAlternates?.map(({ hrefLang, href }) => ({
+      rel: "alternate",
+      hreflang: hrefLang,
+      href: href.toString() || undefined,
+    })) ?? []),
+    ...(Array.isArray(Astro.props.extend?.link) ? Astro.props.extend.link : []),
+  ],
+  meta: [
+    Astro.props.charset ? { charset: Astro.props.charset } : null,
+    {
+      name: "robots",
+      content: `${Astro.props.noindex ? "noindex" : "index"}, ${
+        Astro.props.nofollow ? "nofollow" : "follow"
+      }`,
+    },
+    ...(Array.isArray(Astro.props.extend?.meta) ? Astro.props.extend.meta : []),
+  ],
+});
+
+const { headTags } = await renderSSRHead(head);
 ---
 
-{updatedTitle ? <title set:html={updatedTitle} /> : null}
-
-{Astro.props.charset ? <meta charset={Astro.props.charset} /> : null}
-
-<link rel="canonical" href={Astro.props.canonical || defaultCanonicalUrl.href} />
-
-{
-  Astro.props.description ? (
-    <meta name="description" content={Astro.props.description} />
-  ) : null
-}
-
-<meta
-  name="robots"
-  content={`${Astro.props.noindex ? "noindex" : "index"}, ${
-    Astro.props.nofollow ? "nofollow" : "follow"
-  }`}
-/>
-
-{Astro.props.openGraph && <OpenGraphBasicTags {...Astro.props} />}
-{Astro.props.openGraph?.optional && <OpenGraphOptionalTags {...Astro.props} />}
-{Astro.props.openGraph?.image && <OpenGraphImageTags {...Astro.props} />}
-{Astro.props.openGraph?.article && <OpenGraphArticleTags {...Astro.props} />}
-{Astro.props.twitter && <TwitterTags {...Astro.props} />}
-{Astro.props.extend && <ExtendedTags {...Astro.props} />}
-{Astro.props.languageAlternates && <LanguageAlternatesTags {...Astro.props} />}
+<Fragment set:html={headTags} />
