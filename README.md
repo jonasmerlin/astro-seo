@@ -76,6 +76,7 @@ title | string | The title of the page.
 titleTemplate | string | Provide a title template to keep a consistent title style. `%s — Astro SEO`, `%s` will be replaced with your title, e.g. `Homepage — Astro SEO`
 titleDefault | string | Fallback title that is used if no title is provided.
 description | string | Text that gives a concise description of what your page is about.
+keywords | string \| string[] | A array of keywords or a comma-separated list of keywords to be used by search engines.
 canonical | string | Prevent duplicate content issues by specifying the "canonical" or "preferred" url of a web page. If you don't define this, `Astro.url.href` will be used as the default value.
 noindex | boolean | Set this to true if you don't want search engines to index your page. Since this is an SEO component, this gets set to `false` by default. This way, indexing is strictly opt-out.
 nofollow | boolean | Set this to true if you don't want search engines to follow links on your page. Since this is an SEO component, this gets set to `false` by default. This way, following links is strictly opt-out.
