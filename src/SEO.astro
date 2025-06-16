@@ -25,6 +25,7 @@ export interface Props {
   titleDefault?: string;
   charset?: string;
   description?: string;
+  keywords?: string | string[];
   canonical?: URL | string;
   nofollow?: boolean;
   noindex?: boolean;
@@ -131,6 +132,15 @@ if (Astro.props.title) {
 
 const baseUrl = Astro.site ?? Astro.url;
 const defaultCanonicalUrl = new URL(Astro.url.pathname + Astro.url.search, baseUrl);
+
+let keywords: string | undefined;
+if (Astro.props.keywords) {
+  if (Array.isArray(Astro.props.keywords)) {
+    keywords = Astro.props.keywords.join(",");
+  } else {
+    keywords = Astro.props.keywords;
+  }
+}
 ---
 
 {updatedTitle ? <title set:html={updatedTitle} /> : null}
@@ -151,6 +161,8 @@ const defaultCanonicalUrl = new URL(Astro.url.pathname + Astro.url.search, baseU
     Astro.props.nofollow ? "nofollow" : "follow"
   }`}
 />
+
+{keywords ? <meta name="keywords" content={keywords} /> : null}
 
 {Astro.props.openGraph && <OpenGraphBasicTags {...Astro.props} />}
 {Astro.props.openGraph?.optional && <OpenGraphOptionalTags {...Astro.props} />}
