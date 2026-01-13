@@ -68,6 +68,49 @@ import { SEO } from "astro-seo";
 </html>
 ```
 
+## Using with Layouts
+
+A common Astro pattern is to have a Layout component that wraps your pages and contains the `<head>` element. To pass SEO properties from your pages to the layout, use Astro's standard props pattern:
+
+**Layout.astro:**
+```astro
+---
+import { SEO } from "astro-seo";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <SEO
+      title={title}
+      description={description}
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+```
+
+**index.astro (your page):**
+```astro
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Homepage" description="Welcome to my site">
+  <h1>Hello!</h1>
+</Layout>
+```
+
+This pattern allows each page to define its own SEO values while keeping the `<SEO>` component in a single, reusable layout. For more information on layouts and passing props between components, see the [Astro Layouts documentation](https://docs.astro.build/en/basics/layouts/).
+
 ## Supported Props
 
 Propname | Type | Description

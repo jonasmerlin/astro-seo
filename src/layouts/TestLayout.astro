@@ -1,0 +1,24 @@
+---
+import SEO from "../SEO.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <SEO
+      title={title}
+      description={description}
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

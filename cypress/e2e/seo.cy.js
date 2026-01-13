@@ -535,3 +535,21 @@ describe("canonical URL trailing slash", () => {
       });
   });
 });
+
+describe("Using SEO with Layouts", () => {
+  beforeEach(() => {
+    cy.visit("localhost:4321/layoutPropsTest");
+  });
+
+  it("receives title from page props passed through layout", () => {
+    cy.title().should("eq", "Page Title From Props");
+  });
+
+  it("receives description from page props passed through layout", () => {
+    cy.get('head meta[name="description"]').should(
+      "have.attr",
+      "content",
+      "Description passed via layout props"
+    );
+  });
+});
