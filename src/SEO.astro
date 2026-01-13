@@ -80,6 +80,7 @@ export interface Props {
     link?: Partial<Link>[];
     meta?: Partial<Meta>[];
   };
+  removeTrailingSlashForRoot?: boolean;
   surpressWarnings?: boolean;
 }
 
@@ -133,13 +134,24 @@ if (Astro.props.title) {
 
 const baseUrl = Astro.site ?? Astro.url;
 const defaultCanonicalUrl = new URL(Astro.url.pathname + Astro.url.search, baseUrl);
+
+// When removeTrailingSlashForRoot is true and we're at the root path, remove the trailing slash.
+// This is because new URL("/", base) always produces a trailing slash (e.g. "https://example.com/"),
+// but users with Astro's trailingSlash: 'never' expect "https://example.com" without it.
+// For SEO purposes these are equivalent (search engines treat them the same), but this option
+// allows matching the 'never' expectation. Default is false to preserve existing behavior.
+// See: https://github.com/jonasmerlin/astro-seo/issues/101
+const shouldRemoveTrailingSlash = Astro.props.removeTrailingSlashForRoot && Astro.url.pathname === '/';
+const canonicalHref = shouldRemoveTrailingSlash
+  ? defaultCanonicalUrl.origin + defaultCanonicalUrl.search
+  : defaultCanonicalUrl.href;
 ---
 
 {updatedTitle ? <title set:html={updatedTitle} /> : null}
 
 {Astro.props.charset ? <meta charset={Astro.props.charset} /> : null}
 
-<link rel="canonical" href={Astro.props.canonical || defaultCanonicalUrl.href} />
+<link rel="canonical" href={Astro.props.canonical || canonicalHref} />
 
 {
   Astro.props.description ? (
