@@ -30,6 +30,7 @@ export interface Props {
   noindex?: boolean;
   noarchive?: boolean;
   nocache?: boolean;
+  robotsExtras?: string;
   languageAlternates?: {
     href: URL | string;
     hrefLang: string;
@@ -163,7 +164,7 @@ const canonicalHref = shouldRemoveTrailingSlash
   name="robots"
   content={`${Astro.props.noindex ? "noindex" : "index"}, ${
     Astro.props.nofollow ? "nofollow" : "follow"
-  }${Astro.props.noarchive ? ", noarchive" : ""}${Astro.props.nocache ? ", nocache" : ""}`}
+  }${Astro.props.noarchive ? ", noarchive" : ""}${Astro.props.nocache ? ", nocache" : ""}${Astro.props.robotsExtras ? `, ${Astro.props.robotsExtras}` : ""}`}
 />
 
 {Astro.props.openGraph && <OpenGraphBasicTags {...Astro.props} />}

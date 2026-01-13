@@ -181,6 +181,24 @@ describe("index & follow combinations", () => {
       "noindex, nofollow, noarchive, nocache"
     );
   });
+
+  it("sets robotsExtras correctly", () => {
+    cy.visit("localhost:4321/robotsExtras");
+    cy.get('head meta[name="robots"]').should(
+      "have.attr",
+      "content",
+      "index, follow, max-snippet:-1, max-image-preview:large"
+    );
+  });
+
+  it("combines robotsExtras with noindex correctly", () => {
+    cy.visit("localhost:4321/robotsExtrasWithNoindex");
+    cy.get('head meta[name="robots"]').should(
+      "have.attr",
+      "content",
+      "noindex, follow, max-video-preview:-1"
+    );
+  });
 });
 
 describe("Open Graph image tags", () => {
