@@ -1,9 +1,18 @@
 ---
+interface LanguageAlternate {
+  href: URL | string;
+  hrefLang: string;
+}
+
+interface Props {
+  languageAlternates?: LanguageAlternate[];
+}
+
 const { languageAlternates } = Astro.props;
 ---
 
 {
-  languageAlternates.map((alternate) => (
+  languageAlternates.map((alternate: LanguageAlternate) => (
     <link rel="alternate" hreflang={alternate.hrefLang} href={alternate.href} />
   ))
 }
