@@ -122,7 +122,7 @@ describe("Basic Tags Without URL", () => {
     cy.get('head meta[property="og:url"]').should(
       "have.attr",
       "content",
-      "http://localhost:4321/ogBasicTagsWithoutUrl"
+      "http://localhost:4321/ogBasicTagsWithoutUrl/"
     );
   });
 });
@@ -511,27 +511,28 @@ describe("url as URL object", () => {
 });
 
 describe("canonical URL trailing slash", () => {
-  it("default behavior preserves canonical URL as-is (non-root paths don't have trailing slash)", () => {
-    // Non-root paths don't have trailing slashes in pathname, so canonical won't either
+  it("default behavior preserves canonical URL as-is (Astro static build adds trailing slashes)", () => {
+    // Astro's static build with format: "directory" (the default) adds trailing slashes to URLs.
+    // When astro preview serves the built output, Astro.url.pathname includes the trailing slash.
     cy.visit("localhost:4321/noindex");
     cy.get('head link[rel="canonical"]')
       .invoke("attr", "href")
       .then((href) => {
-        expect(href).to.eq("http://localhost:4321/noindex");
+        expect(href).to.eq("http://localhost:4321/noindex/");
       });
   });
 
-  it("removeTrailingSlashForRoot option removes trailing slash from canonical URL", () => {
+  it("removeTrailingSlashForRoot option removes trailing slash from root canonical URL", () => {
     // This page has removeTrailingSlashForRoot={true}
-    // Even though it's not at the root path, we can verify the prop is accepted
-    // The actual root path behavior can't be easily tested since index.astro has explicit canonical
+    // This option only affects the root path ('/'), not other paths.
+    // Non-root paths will still have trailing slashes from Astro's static build.
     cy.visit("localhost:4321/removeTrailingSlashForRoot");
     cy.get('head link[rel="canonical"]')
       .invoke("attr", "href")
       .then((href) => {
-        // This page is at /removeTrailingSlashForRoot, not root, so trailing slash removal
-        // doesn't apply (pathname !== '/'), but the prop should be accepted without error
-        expect(href).to.eq("http://localhost:4321/removeTrailingSlashForRoot");
+        // This page is at /removeTrailingSlashForRoot/, not root, so trailing slash removal
+        // doesn't apply (pathname !== '/'), and Astro's static build adds the trailing slash.
+        expect(href).to.eq("http://localhost:4321/removeTrailingSlashForRoot/");
       });
   });
 });
