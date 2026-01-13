@@ -28,6 +28,8 @@ export interface Props {
   canonical?: URL | string;
   nofollow?: boolean;
   noindex?: boolean;
+  noarchive?: boolean;
+  nocache?: boolean;
   languageAlternates?: {
     href: URL | string;
     hrefLang: string;
@@ -149,7 +151,7 @@ const defaultCanonicalUrl = new URL(Astro.url.pathname + Astro.url.search, baseU
   name="robots"
   content={`${Astro.props.noindex ? "noindex" : "index"}, ${
     Astro.props.nofollow ? "nofollow" : "follow"
-  }`}
+  }${Astro.props.noarchive ? ", noarchive" : ""}${Astro.props.nocache ? ", nocache" : ""}`}
 />
 
 {Astro.props.openGraph && <OpenGraphBasicTags {...Astro.props} />}

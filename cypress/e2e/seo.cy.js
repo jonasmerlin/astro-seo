@@ -154,6 +154,33 @@ describe("index & follow combinations", () => {
       "noindex, nofollow"
     );
   });
+
+  it("sets noarchive correctly", () => {
+    cy.visit("localhost:4321/noarchive");
+    cy.get('head meta[name="robots"]').should(
+      "have.attr",
+      "content",
+      "index, follow, noarchive"
+    );
+  });
+
+  it("sets nocache correctly", () => {
+    cy.visit("localhost:4321/nocache");
+    cy.get('head meta[name="robots"]').should(
+      "have.attr",
+      "content",
+      "index, follow, nocache"
+    );
+  });
+
+  it("sets all robot directives (noindex, nofollow, noarchive, nocache) correctly", () => {
+    cy.visit("localhost:4321/allRobotDirectives");
+    cy.get('head meta[name="robots"]').should(
+      "have.attr",
+      "content",
+      "noindex, nofollow, noarchive, nocache"
+    );
+  });
 });
 
 describe("Open Graph image tags", () => {
