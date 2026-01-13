@@ -1,6 +1,16 @@
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [1.1.0](https://github.com/jonasmerlin/astro-seo/compare/v1.0.0...v1.1.0) (2026-01-13)
+
+
+### Features
+
+* add noarchive (and possibly also nocache) ([4f5b127](https://github.com/jonasmerlin/astro-seo/commit/4f5b127dc029b8cb205c3e1034c629b293a3bb83)), closes [#103](https://github.com/jonasmerlin/astro-seo/issues/103)
+* add removeTrailingSlashForRoot option ([b49ea94](https://github.com/jonasmerlin/astro-seo/commit/b49ea947a9b5cdf257ebfe1538cf14c2fd4f9f37)), closes [#101](https://github.com/jonasmerlin/astro-seo/issues/101)
+* add robotsExtras tags ([ac11817](https://github.com/jonasmerlin/astro-seo/commit/ac118175d02ea8a8266a026fc7dea0caa5208c8a)), closes [#96](https://github.com/jonasmerlin/astro-seo/issues/96)
+
 ## [1.0.0](https://github.com/jonasmerlin/astro-seo/compare/v0.8.4...v1.0.0) (2026-01-13)
 
 ### ⚠ BREAKING CHANGES
