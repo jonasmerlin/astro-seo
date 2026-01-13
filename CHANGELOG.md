@@ -1,7 +1,20 @@
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+## [1.0.0](https://github.com/jonasmerlin/astro-seo/compare/v0.8.4...v1.0.0) (2026-01-13)
 
+### ⚠ BREAKING CHANGES
+
+* **deps:** Requires Astro 5.16 or higher. Users on Astro 4.x should continue using v0.8.4.
+
+### Features
+
+* **deps:** update to Astro 5.16 ([#upcoming-commit](https://github.com/jonasmerlin/astro-seo/commit/upcoming))
+  * Updated Astro from ^4.4.0 to ^5.16.0
+  * Updated @astrojs/check from ^0.5.4 to ^0.9.0
+  * Updated TypeScript configuration for Astro 5
+  * All 47 tests passing
+  * Fully compatible with Astro 5.16
 ### [0.8.4](https://github.com/jonasmerlin/astro-seo/compare/v0.8.3...v0.8.4) (2024-06-01)
 
 
