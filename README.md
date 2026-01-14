@@ -159,6 +159,7 @@ twitter.imageAlt | string | Sets `twitter:image:alt`. A description of what is i
 twitter.description | string | Sets `twitter:description`. A one to two sentence description of your object.
 extend.link | Array<Link extends HTMLLinkElement { prefetch: boolean; }> | An array of free-form `<link>` you'd like to define.
 extend.meta | Array<Meta extends HTMLMetaElement { property: string; }> | An array of free-form `<meta>` tags you'd like to define.
+removeTrailingSlashForRoot | boolean | Removes the trailing slash when only the root path is displayed (e.g. `https://example.com/` becomes `https://example.com`). For SEO purposes these are equivalent (search engines treat them the same), but this option helps match the expectation for users with Astro's trailingSlash: 'never'. This option gets set to `false` by default.
 
 ## Extending Astro SEO
 
