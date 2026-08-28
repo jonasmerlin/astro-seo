@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
-    "astro": "^5.16.0",
+    "astro": "^7.2.9",
     "cypress": "^13.0.0",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0",

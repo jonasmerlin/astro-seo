@@ -47,6 +47,9 @@ typings/
 # TypeScript cache
 *.tsbuildinfo
 
+# Astro generated files
+.astro/
+
 # Optional npm cache directory
 .npm
 
