@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/jonasmerlin/astro-seo/compare/v1.1.0...v1.2.0) (2026-08-28)
+
+### Features
+
+* allow canonical links to be omitted with `null` ([33dcd7d](https://github.com/jonasmerlin/astro-seo/commit/33dcd7d)), closes [#107](https://github.com/jonasmerlin/astro-seo/issues/107)
+
+### Documentation
+
+* document `removeTrailingSlashForRoot` ([7c9229a](https://github.com/jonasmerlin/astro-seo/commit/7c9229a))
+
+### Maintenance
+
+* update `@astrojs/check` to 0.9.10 and move it to devDependencies ([f5e64f5](https://github.com/jonasmerlin/astro-seo/commit/f5e64f5))
+
 ## [1.1.0](https://github.com/jonasmerlin/astro-seo/compare/v1.0.0...v1.1.0) (2026-01-13)
 
 
