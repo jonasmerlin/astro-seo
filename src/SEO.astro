@@ -25,7 +25,7 @@ export interface Props {
   titleDefault?: string;
   charset?: string;
   description?: string;
-  canonical?: URL | string;
+  canonical?: URL | string | null;
   nofollow?: boolean;
   noindex?: boolean;
   noarchive?: boolean;
@@ -152,7 +152,11 @@ const canonicalHref = shouldRemoveTrailingSlash
 
 {Astro.props.charset ? <meta charset={Astro.props.charset} /> : null}
 
-<link rel="canonical" href={Astro.props.canonical || canonicalHref} />
+{
+  Astro.props.canonical !== null && (
+    <link rel="canonical" href={Astro.props.canonical || canonicalHref} />
+  )
+}
 
 {
   Astro.props.description ? (

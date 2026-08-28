@@ -119,7 +119,7 @@ title | string | The title of the page.
 titleTemplate | string | Provide a title template to keep a consistent title style. `%s — Astro SEO`, `%s` will be replaced with your title, e.g. `Homepage — Astro SEO`
 titleDefault | string | Fallback title that is used if no title is provided.
 description | string | Text that gives a concise description of what your page is about.
-canonical | string | Prevent duplicate content issues by specifying the "canonical" or "preferred" url of a web page. If you don't define this, `Astro.url.href` will be used as the default value.
+canonical | string \| URL \| null | Prevent duplicate content issues by specifying the "canonical" or "preferred" URL of a web page. If you don't define this or pass `undefined`, `Astro.url.href` will be used as the default value. Pass `null` to omit the canonical link entirely.
 noindex | boolean | Set this to true if you don't want search engines to index your page. Since this is an SEO component, this gets set to `false` by default. This way, indexing is strictly opt-out.
 nofollow | boolean | Set this to true if you don't want search engines to follow links on your page. Since this is an SEO component, this gets set to `false` by default. This way, following links is strictly opt-out.
 noarchive | boolean | Set this to true if you don't want search engines to show a cached link for your page.
@@ -160,6 +160,14 @@ twitter.description | string | Sets `twitter:description`. A one to two sentence
 extend.link | Array<Link extends HTMLLinkElement { prefetch: boolean; }> | An array of free-form `<link>` you'd like to define.
 extend.meta | Array<Meta extends HTMLMetaElement { property: string; }> | An array of free-form `<meta>` tags you'd like to define.
 removeTrailingSlashForRoot | boolean | Removes the trailing slash when only the root path is displayed (e.g. `https://example.com/` becomes `https://example.com`). For SEO purposes these are equivalent (search engines treat them the same), but this option helps match the expectation for users with Astro's trailingSlash: 'never'. This option gets set to `false` by default.
+
+### Omitting the canonical link
+
+Astro SEO adds a canonical link for the current page by default. To omit it for a page, such as an error page, pass `null` explicitly:
+
+```astro
+<SEO canonical={null} />
+```
 
 ## Extending Astro SEO
 

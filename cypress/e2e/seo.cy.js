@@ -555,6 +555,22 @@ describe("canonical URL trailing slash", () => {
   });
 });
 
+describe("canonical controls", () => {
+  it("omits the canonical link when canonical is null", () => {
+    cy.visit("localhost:4321/canonicalNull");
+    cy.get('head link[rel="canonical"]').should("not.exist");
+  });
+
+  it("uses the default canonical URL when canonical is undefined", () => {
+    cy.visit("localhost:4321/canonicalUndefined");
+    cy.get('head link[rel="canonical"]').should(
+      "have.attr",
+      "href",
+      "http://localhost:4321/canonicalUndefined/"
+    );
+  });
+});
+
 describe("Using SEO with Layouts", () => {
   beforeEach(() => {
     cy.visit("localhost:4321/layoutPropsTest");
