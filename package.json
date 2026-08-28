@@ -34,14 +34,12 @@
     "check": "astro check"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.10",
     "astro": "^5.16.0",
     "cypress": "^13.0.0",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0",
     "standard-version": "^9.5.0",
     "typescript": "^5.3.3"
-  },
-  "dependencies": {
-    "@astrojs/check": "^0.9.0"
   }
 }
