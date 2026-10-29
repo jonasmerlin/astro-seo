@@ -4,11 +4,19 @@ import type { HTMLAttributes } from "astro/types";
 const { props } = Astro;
 
 type Link = HTMLAttributes<"link">;
+
+interface MetaTag {
+  content?: string;
+  httpEquiv?: string;
+  media?: string;
+  name?: string;
+  property?: string;
+}
 ---
 
 {props.extend.link?.map((attributes: Link) => <link {...attributes} />)}
 {
-  props.extend.meta?.map(({ content, httpEquiv, media, name, property }) => (
+  props.extend.meta?.map(({ content, httpEquiv, media, name, property }: MetaTag) => (
     <meta
       name={name}
       property={property}
