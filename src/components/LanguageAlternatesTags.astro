@@ -12,7 +12,7 @@ const { languageAlternates } = Astro.props;
 ---
 
 {
-  languageAlternates.map((alternate: LanguageAlternate) => (
+  languageAlternates?.map((alternate: LanguageAlternate) => (
     <link rel="alternate" hreflang={alternate.hrefLang} href={alternate.href} />
   ))
 }
